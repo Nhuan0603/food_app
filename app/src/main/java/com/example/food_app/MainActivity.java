@@ -7,7 +7,6 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.view.Menu;
@@ -17,8 +16,8 @@ import com.example.food_app.fragment.AccountFragment;
 import com.example.food_app.fragment.ContactFragment;
 import com.example.food_app.fragment.HistoryFragment;
 import com.example.food_app.fragment.cart.CartTab;
-import com.example.food_app.fragment.tab_home.HomeTab;
 import com.example.food_app.fragment.notification.NoticeTab;
+import com.example.food_app.fragment.tab_home.HomeTab;
 import com.example.food_app.scroll.TranslateAnimation;
 import com.google.android.material.badge.BadgeDrawable;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
