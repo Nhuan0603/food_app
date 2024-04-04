@@ -17,7 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="20dp">
+            >
 
             <TextView
                 android:id="@+id/tv_account_register"
@@ -31,14 +31,14 @@
                 />
 
             <EditText
-                android:id="@+id/ed_name_register"
+                android:id="@+id/name_regis"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/ed_name"
                 android:minHeight="48dp" />
 
             <EditText
-                android:id="@+id/ed_password_register"
+                android:id="@+id/password_regis"
                 android:layout_width="match_parent"
                 android:inputType="textPassword"
                 android:layout_height="wrap_content"
@@ -46,10 +46,10 @@
                 android:minHeight="48dp" />
 
             <EditText
-                android:id="@+id/ed_email_register"
+                android:id="@+id/repass_regis"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/ed_email"
+                android:hint="Repassword"
                 android:minHeight="48dp"
                 android:layout_marginBottom="40dp"/>
             <Button
@@ -58,6 +58,14 @@
                 android:layout_height="wrap_content"
                 android:text="@string/resgister"
                 android:textSize="18sp"
+
+                />
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Login now!!!"
+                android:textColor="@color/white"
+                android:id="@+id/btn_login_reg"
                 />
 
         </LinearLayout>
