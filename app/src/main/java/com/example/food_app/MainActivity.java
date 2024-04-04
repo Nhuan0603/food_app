@@ -15,6 +15,7 @@ import android.view.MenuItem;
 import com.example.food_app.fragment.AccountFragment;
 import com.example.food_app.fragment.ContactFragment;
 import com.example.food_app.fragment.HistoryFragment;
+import com.example.food_app.fragment.SettingFragment;
 import com.example.food_app.fragment.cart.CartTab;
 import com.example.food_app.fragment.notification.NoticeTab;
 import com.example.food_app.fragment.tab_home.HomeTab;
@@ -30,8 +31,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private static final int FRAGMENT_ACCOUNT = 1;
     private static final int FRAGMENT_HISTORY = 2;
     private static final int FRAGMENT_CONTACT = 3;
+    private static final int FRAGMENT_SETTING = 4;
     private static final int TAB_CART = 4;
-    public static final int TAB_NOTICE = 5;
+    public static final int TAB_NOTICE = 6;
     private int myCurrentFragment =  TAB_HOME;
     private NavigationView myNavigationView;
     private BottomNavigationView myBottomnavigationView;
@@ -119,6 +121,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             if(myCurrentFragment != FRAGMENT_CONTACT){
                 replaceFragment(new ContactFragment());
                 myCurrentFragment = FRAGMENT_CONTACT;
+            }
+        } else if (id == R.id.nav_setting) {
+            if(myCurrentFragment != FRAGMENT_SETTING){
+                replaceFragment(new SettingFragment());
+                myCurrentFragment = FRAGMENT_SETTING;
             }
         }
         myDrawerLayout.closeDrawer(GravityCompat.END);

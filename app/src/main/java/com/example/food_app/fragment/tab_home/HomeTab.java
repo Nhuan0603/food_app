@@ -85,7 +85,7 @@ public class HomeTab extends Fragment {
             int resID = getResId("ff_" + i%9, R.drawable.class);
             Uri imgUri = getUri(resID);
             p.setImage(imgUri);
-            p.setPrice(Float.parseFloat(String.format("%.2f",new Random().nextFloat() * 1000)));
+            p.setPrice(new Random().nextFloat() * 1000);
             alProduct.add(p);
         }
         this.foodRepository = new FoodRepository(alProduct);
