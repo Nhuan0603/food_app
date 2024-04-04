@@ -27,6 +27,7 @@ import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private DrawerLayout myDrawerLayout;
+    ////////////////////////kokokokokokokok
     private static final int TAB_HOME = 0;
     private static final int FRAGMENT_ACCOUNT = 1;
     private static final int FRAGMENT_HISTORY = 2;
