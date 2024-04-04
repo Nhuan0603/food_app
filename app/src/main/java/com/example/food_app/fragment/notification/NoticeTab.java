@@ -39,6 +39,7 @@ public class NoticeTab extends Fragment {
         btnNotification.setOnClickListener(v -> {
             sendNotification(getListNnotification().get(i).getTitle(),getListNnotification().get(i).getContent());
             i=i+1;
+            //dm thang nhat
             if (i == getListNnotification().size()) i=0;
         });
 
