@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/white_2">
+
+    <TextView
+        android:id="@+id/tv_account"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/fragment_account"
+        android:textColor="@color/black"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_marginTop="20dp"/>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_user"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_account"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="-20dp"
+        app:cardCornerRadius="30dp">
+
+        <LinearLayout
+            android:id="@+id/linear_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <ImageView
+                android:id="@+id/img_user_account"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:src="@mipmap/ic_launcher" />
+
+            <TextView
+                android:id="@+id/name_user_account"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:text="@string/app_name"
+                android:textAlignment="center"
+                android:textSize="24sp" />
+
+            <RelativeLayout
+                android:id="@+id/input_phone"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="10dp"
+                android:layout_marginBottom="14dp">
+
+                <ImageView
+                    android:id="@+id/img_phone"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/ic_phone" />
+
+                <TextView
+                    android:id="@+id/tv_phone"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/img_phone"
+                    android:padding="5dp"
+                    android:text="Phone Number"
+                    android:textColor="@color/black" />
+
+                <EditText
+                    android:id="@+id/ed_phone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_phone"
+                    android:layout_toEndOf="@+id/img_phone"
+                    android:singleLine="true"
+                    android:text="+84123456789" />
+
+                <ImageView
+                    android:id="@+id/ic_phone"
+                    android:layout_width="70dp"
+                    android:layout_height="30dp"
+                    android:layout_toEndOf="@+id/tv_phone"
+                    android:src="@drawable/ic_edit" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/input_email"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="10dp"
+                android:layout_marginBottom="14dp">
+
+                <ImageView
+                    android:id="@+id/img_email"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/ic_email" />
+
+                <TextView
+                    android:id="@+id/tv_email"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/img_email"
+                    android:padding="5dp"
+                    android:text="Email"
+                    android:textColor="@color/black" />
+
+                <EditText
+                    android:id="@+id/ed_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_email"
+                    android:layout_toEndOf="@+id/img_email"
+                    android:singleLine="true"
+                    android:text="nguyen@gmail.com" />
+
+                <ImageView
+                    android:id="@+id/ic_email"
+                    android:layout_width="70dp"
+                    android:layout_height="30dp"
+                    android:layout_toEndOf="@+id/tv_email"
+                    android:src="@drawable/ic_edit" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/input_location"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="10dp"
+                android:layout_marginBottom="14dp">
+
+                <ImageView
+                    android:id="@+id/img_location"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/ic_location" />
+
+                <TextView
+                    android:id="@+id/tv_location"
+                    android:layout_width="240dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_toRightOf="@+id/img_location"
+                    android:padding="5dp"
+                    android:text="Location"
+                    android:textColor="@color/black" />
+
+                <EditText
+                    android:id="@+id/ed_location"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_location"
+                    android:layout_toEndOf="@+id/img_location"
+                    android:singleLine="true"
+                    android:text="Tây Sơn, Hà Nội" />
+
+                <ImageView
+                    android:id="@+id/ic_location"
+                    android:layout_width="70dp"
+                    android:layout_height="30dp"
+                    android:layout_toEndOf="@+id/tv_location"
+                    android:src="@drawable/ic_edit" />
+            </RelativeLayout>
+
+            <Button
+                android:id="@+id/btn_save_card"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:backgroundTint="@color/orange_2"
+                android:text="Save"
+                android:textSize="24sp" />
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+</RelativeLayout>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/ff_1">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardBr"
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="-40dp"
+        app:cardCornerRadius="50dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <TextView
+                android:id="@+id/tv_account_register"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/cre_acc"
+                android:textSize="26sp"
+                android:textStyle="bold"
+                android:textAlignment="center"
+                android:paddingTop="10dp"
+                />
+
+            <EditText
+                android:id="@+id/ed_name_register"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/ed_name"
+                android:minHeight="48dp" />
+
+            <EditText
+                android:id="@+id/ed_password_register"
+                android:layout_width="match_parent"
+                android:inputType="textPassword"
+                android:layout_height="wrap_content"
+                android:hint="@string/ed_pass"
+                android:minHeight="48dp" />
+
+            <EditText
+                android:id="@+id/ed_email_register"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/ed_email"
+                android:minHeight="48dp"
+                android:layout_marginBottom="40dp"/>
+            <Button
+                android:id="@+id/btn_register"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/resgister"
+                android:textSize="18sp"
+                />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>

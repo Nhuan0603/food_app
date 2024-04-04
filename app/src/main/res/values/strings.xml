@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">Fast Food</string>
+    <string name="fragment_account">Thông tin tài khoản</string>
+    <string name="fragment_contact">Liên hệ/ FAQs</string>
+    <string name="fragment_history">Lịch sử mua hàng</string>
+    <string name="fragment_setting">Cài đặt</string>
+    <string name="fragment_location">Địa chỉ</string>
+    <string name="fragment_home">Trang chủ</string>
+    <string name="fragment_logout">Đăng xuất</string>
+    <string name="nav_drawer_open">Open nav drawer</string>
+    <string name="nav_drawer_close">Close nav drawer</string>
+    <!-- Preference Titles -->
+    <string name="messages_header">Messages</string>
+    <string name="sync_header">Sync</string>
+
+    <!-- Messages Preferences -->
+    <string name="signature_title">Your signature</string>
+    <string name="reply_title">Default reply action</string>
+
+    <!-- Sync Preferences -->
+    <string name="sync_title">Sync email periodically</string>
+    <string name="attachment_title">Download incoming attachments</string>
+    <string name="attachment_summary_on">Automatically download attachments for incoming emails
+    </string>
+    <string name="attachment_summary_off">Only download attachments when manually requested</string>
+    <string name="thong_bao">Thông báo</string>
+    <string name="ed_email">Email</string>
+    <string name="ed_pass">Password</string>
+    <string name="log_in">Log In</string>
+    <string name="cre_acc">Create Account</string>
+    <string name="ed_name">name register</string>
+    <string name="resgister">register</string>
+    <string name="add_product">Đã thêm vào giỏ hàng</string>
+    <string name="channel_name">chanel1</string>
+    <string name="channel_description">this is channel 1</string>
+
+</resources>
