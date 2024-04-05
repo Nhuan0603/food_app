@@ -27,8 +27,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".fragment.Register_login.LoginActivity"/>
-        <activity android:name=".MainActivity"/>
+        <activity android:name=".fragment.Register_login.LoginActivity"
+            android:exported="false"/>
+        <activity android:name=".MainActivity"
+            android:exported="false"/>
     </application>
 
 
