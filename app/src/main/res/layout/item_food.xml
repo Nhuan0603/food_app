@@ -61,9 +61,9 @@
             android:layout_below="@+id/tv_price"
             android:layout_alignParentRight="true"
             android:layout_marginRight="5dp"
+            android:backgroundTint="#FF5722"
             android:text="+"
-            android:textSize="20dp"
-            />
+            android:textSize="20dp" />
     </RelativeLayout>
 
 

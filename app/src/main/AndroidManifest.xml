@@ -27,10 +27,30 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".fragment.Register_login.LoginActivity"
+
+        <activity
+            android:name=".fragment.Register_login.LoginActivity"
             android:exported="false"/>
-        <activity android:name=".MainActivity"
+
+        <activity
+            android:name=".Pay.Pay"
+            android:exported="false">
+        </activity>
+
+        <activity
+            android:name=".Pay.Method"
+            android:exported="false">
+        </activity>
+
+        <activity
+            android:name=".MainActivity"
             android:exported="false"/>
+
+        <activity
+            android:name=".fragment.AccountFragment"
+            android:exported="false"
+            >
+        </activity>
     </application>
 
 

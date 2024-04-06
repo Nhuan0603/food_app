@@ -1,31 +1,36 @@
 package com.example.food_app.fragment.cart;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.food_app.MainActivity;
+import com.example.food_app.Pay.Pay;
 import com.example.food_app.R;
 import com.example.food_app.databinding.ActivityMainBinding;
 
 
 public class CartTab extends Fragment {
     private View myView;
-    private AppBarConfiguration appBarConfiguration;
-
     private MainActivity mainActivity;
     private RecyclerView rvCart;
     private TextView tvTotal;
+    private Button btnThanhToan;
     private CartModel cart = new CartModel();
     @Nullable
     @Override
@@ -42,6 +47,15 @@ public class CartTab extends Fragment {
         CartAdapter cartAdapter =new CartAdapter(getContext(), this.cart);
         rvCart.setAdapter(cartAdapter);
         tvTotal.setText("" + this.cart.getTotalPrice());
+
+        btnThanhToan = myView.findViewById(R.id.btn_thanhToan);
+        btnThanhToan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), Pay.class);
+                startActivity(intent);
+            }
+        });
 
         return myView;
     }

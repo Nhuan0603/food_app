@@ -6,15 +6,16 @@
     android:layout_height="match_parent">
 
     <TextView
+        android:textAlignment="center"
         android:id="@+id/tv_mycart"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_width="188dp"
+        android:layout_height="51dp"
         android:fontFamily="sans-serif"
         android:text="My Cart"
         android:textColor="@color/orange_2"
         android:textSize="40sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -24,8 +25,8 @@
         android:id="@+id/view"
         android:layout_width="300dp"
         android:layout_height="7dp"
-        android:layout_marginTop="8dp"
-        android:background="@color/blue"
+        android:layout_marginTop="2dp"
+        android:background="@color/orange_2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
@@ -35,33 +36,35 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvCart"
-        android:layout_width="371dp"
-        android:layout_height="347dp"
-        android:layout_marginTop="40dp"
+        android:layout_width="410dp"
+        android:layout_height="480dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view">
 
     </androidx.recyclerview.widget.RecyclerView>
 
+    <!--    <RelativeLayout-->
+<!--        android:id="@+id/rltCartTotal"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content">-->
+
+<!--    </RelativeLayout>-->
+
     <View
         android:id="@+id/view2"
         android:layout_width="300dp"
         android:layout_height="7dp"
-        android:layout_marginTop="72dp"
-        android:background="@color/blue"
+        android:layout_marginTop="32dp"
+        android:background="@color/orange_2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/rvCart">
 
     </View>
-<!--    <RelativeLayout-->
-<!--        android:id="@+id/rltCartTotal"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content">-->
 
-<!--    </RelativeLayout>-->
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
@@ -70,7 +73,7 @@
         android:layout_marginTop="16dp"
         android:text="Total"
         android:textSize="25sp"
-        app:layout_constraintBottom_toTopOf="@+id/btn_Buy"
+        app:layout_constraintBottom_toTopOf="@+id/btn_thanhToan"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view2"
         app:layout_constraintVertical_bias="0.307">
@@ -81,12 +84,13 @@
         android:id="@+id/tv_total"
         android:layout_width="179dp"
         android:layout_height="51dp"
-        android:layout_marginStart="32dp"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="16dp"
-        app:layout_constraintBottom_toTopOf="@+id/btn_Buy"
+        android:text="Price"
+        android:textAlignment="center"
+        android:textSize="25sp"
         app:layout_constraintStart_toEndOf="@+id/textView"
-        app:layout_constraintTop_toBottomOf="@+id/view2"
-        app:layout_constraintVertical_bias="0.136">
+        app:layout_constraintTop_toBottomOf="@+id/view2">
 
     </TextView>
 
@@ -97,7 +101,7 @@
         android:layout_marginEnd="56dp"
         android:text="VND"
         android:textSize="25sp"
-        app:layout_constraintBottom_toTopOf="@+id/btn_Buy"
+        app:layout_constraintBottom_toTopOf="@+id/btn_thanhToan"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view2"
         app:layout_constraintVertical_bias="0.509">
@@ -105,16 +109,16 @@
     </TextView>
 
     <Button
-        android:id="@+id/btn_Buy"
-        android:layout_width="277dp"
+        android:id="@+id/btn_thanhToan"
+        android:layout_width="match_parent"
         android:layout_height="52dp"
-        android:layout_marginBottom="16dp"
-        android:background="@color/orange_1"
-        android:text="Buy"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="#FF5722"
+        android:text="Thanh toán"
         android:textSize="25sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_total">
 
     </Button>
 
