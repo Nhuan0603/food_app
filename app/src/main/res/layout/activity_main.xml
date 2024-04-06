@@ -42,6 +42,7 @@
         android:layout_height="match_parent"
         app:headerLayout="@layout/layout_header_nav"
         app:menu="@menu/menu_nav"
+        app:itemIconTint="@color/color_menu_bottom"
         android:layout_gravity="end">
 
         <Button

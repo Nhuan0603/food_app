@@ -8,7 +8,7 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/cardBr"
         android:layout_width="match_parent"
-        android:layout_height="350dp"
+        android:layout_height="380dp"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="-40dp"
         app:cardCornerRadius="50dp">
@@ -17,7 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            >
+            android:padding="10dp">
 
             <TextView
                 android:id="@+id/tv_account_register"
@@ -35,7 +35,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/ed_name"
-                android:minHeight="48dp" />
+                android:minHeight="48dp"
+                android:singleLine="true" />
 
             <EditText
                 android:id="@+id/password_regis"
@@ -49,24 +50,27 @@
                 android:id="@+id/repass_regis"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="40dp"
                 android:hint="Repassword"
                 android:minHeight="48dp"
-                android:layout_marginBottom="40dp"/>
+                android:singleLine="true" />
+
             <Button
                 android:id="@+id/btn_register"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/resgister"
                 android:textSize="18sp"
-
                 />
+
             <Button
+                android:id="@+id/btn_login_reg"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Login now!!!"
-                android:textColor="@color/white"
-                android:id="@+id/btn_login_reg"
-                />
+                android:singleLine="true"
+                android:text="Login now!!!"
+                android:backgroundTint="@color/orange_2"
+                android:textColor="@color/white" />
 
         </LinearLayout>
 
