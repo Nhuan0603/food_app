@@ -1,11 +1,12 @@
 package com.example.food_app.fragment.food;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class FoodRepository {
     private static ArrayList<Food> foodList = new ArrayList<>();
 
-    public FoodRepository(ArrayList<Food> lst) {
+    public FoodRepository(List<Food> lst) {
         for (Food p: lst){
             this.foodList.add(p);
         }
