@@ -17,7 +17,7 @@ import com.example.food_app.fragment.ContactFragment;
 import com.example.food_app.fragment.HistoryFragment;
 import com.example.food_app.fragment.SettingFragment;
 import com.example.food_app.fragment.cart.CartTab;
-import com.example.food_app.fragment.notification.NoticeTab;
+import com.example.food_app.fragment.notification.NotificationTab;
 import com.example.food_app.fragment.tab_home.HomeTab;
 import com.example.food_app.scroll.TranslateAnimation;
 import com.google.android.material.badge.BadgeDrawable;
@@ -77,7 +77,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     }
                 } else if (id == R.id.bottom_notice){
                     if(myCurrentFragment != TAB_NOTICE){
-                        replaceFragment(new NoticeTab());
+                        replaceFragment(new NotificationTab());
                         myCurrentFragment = TAB_NOTICE;
                     }
                 }
@@ -144,6 +144,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private void replaceFragment(Fragment fragment){
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.content_frame, fragment);
+        transaction.addToBackStack(null);
         transaction.commit();
     }
 }

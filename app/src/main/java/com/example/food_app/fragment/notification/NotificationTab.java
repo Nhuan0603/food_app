@@ -18,6 +18,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -27,13 +28,13 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class NoticeTab extends Fragment {
+public class NotificationTab extends Fragment {
 
     public int i=0;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View myView = inflater.inflate(R.layout.tab_notice, container, false);
+        View myView = inflater.inflate(R.layout.tab_notification, container, false);
 
         Button btnNotification = myView.findViewById(R.id.btn_notification);
         btnNotification.setOnClickListener(v -> {
@@ -46,6 +47,9 @@ public class NoticeTab extends Fragment {
         NotificationAdapter notificationAdapter = new NotificationAdapter(getContext());
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext() ,LinearLayoutManager.VERTICAL,false);
         rcv.setLayoutManager(linearLayoutManager);
+
+        RecyclerView.ItemDecoration itemDecoration = new DividerItemDecoration(getContext(),DividerItemDecoration.VERTICAL);
+        rcv.addItemDecoration(itemDecoration);
 
         notificationAdapter.setData(getListNnotification());
         rcv.setAdapter(notificationAdapter);
@@ -66,7 +70,7 @@ public class NoticeTab extends Fragment {
     private void sendNotification(String title, String content) {
 //        String GROUP_KEY_WORK_EMAIL = "com.android.example.WORK_EMAIL";
         Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher);
-        Uri sound = Uri.parse("android.resource://" + getContext().getPackageName() + "/" + R.raw.iphone_sound);
+        Uri sound = Uri.parse("android.resource://" + getContext().getPackageName().toString() + "/" + R.raw.iphone_sound);
 
         Notification newMessageNotification = new NotificationCompat.Builder(getContext(), NotificationApplication.CHANNEL_ID)
                 .setSmallIcon(R.drawable.ic_email)
