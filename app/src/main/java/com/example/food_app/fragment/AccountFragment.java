@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,7 +20,10 @@ import com.example.food_app.Pay.Pay;
 import com.example.food_app.R;
 
 public class AccountFragment extends Fragment {
-
+    private ImageView edit_phone;
+    private ImageView edit_email;
+    private ImageView edit_location;
+    private TextView userEmail;
     private TextView username;
     private TextView userPhone;
     private TextView userLocation;
@@ -39,6 +43,28 @@ public class AccountFragment extends Fragment {
         pay = (Pay) getActivity();
         btnSave = myView.findViewById(R.id.btn_save_card);
         Data();
+
+        edit_phone = myView.findViewById(R.id.ic_edit_phone);
+        edit_email = myView.findViewById(R.id.ic_edit_email);
+        edit_location = myView.findViewById(R.id.ic_edit_location);
+        edit_phone.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                userPhone.setEnabled(true);
+            }
+        });
+        edit_email.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                userEmail.setEnabled(true);
+            }
+        });
+        edit_location.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                userLocation.setEnabled(true);
+            }
+        });
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -61,6 +87,7 @@ public class AccountFragment extends Fragment {
 
     private void Data() {
         username = myView.findViewById(R.id.name_user_account);
+        userEmail = myView.findViewById(R.id.ed_email);
         userPhone = myView.findViewById(R.id.ed_phone);
         userLocation = myView.findViewById(R.id.ed_location);
     }

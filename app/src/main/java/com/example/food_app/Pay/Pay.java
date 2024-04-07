@@ -69,6 +69,8 @@ public class Pay extends AppCompatActivity {
                 fragmentTransaction.replace(R.id.Pay, new AccountFragment());
                 fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();
+//                Intent i = new Intent(getApplication(),AccountFragment.class);
+//                startActivity(i);
             }
         });
 
