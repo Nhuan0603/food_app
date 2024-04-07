@@ -8,10 +8,14 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.IntentFilter;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
+import com.example.food_app.broadcast.NetworkBroadcastReceiver;
 import com.example.food_app.fragment.AccountFragment;
 import com.example.food_app.fragment.ContactFragment;
 import com.example.food_app.fragment.HistoryFragment;
@@ -26,8 +30,8 @@ import com.google.android.material.navigation.NavigationBarView;
 import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+    private NetworkBroadcastReceiver networkBroadcastReceiver = new NetworkBroadcastReceiver();
     private DrawerLayout myDrawerLayout;
-
     private static final int TAB_HOME = 0;
     private static final int FRAGMENT_ACCOUNT = 1;
     private static final int FRAGMENT_HISTORY = 2;
@@ -38,6 +42,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private int myCurrentFragment =  TAB_HOME;
     private NavigationView myNavigationView;
     private BottomNavigationView myBottomnavigationView;
+    private long backPressTime;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -138,13 +143,31 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         if (myDrawerLayout.isDrawerOpen(GravityCompat.END)){
             myDrawerLayout.closeDrawer(GravityCompat.END);
         }else {
+//            if (backPressTime + 2000 < System.currentTimeMillis() ){
+//                Toast.makeText(this, "Bấm thêm lần nữa để thoát ứng dụng", Toast.LENGTH_SHORT).show();
+//            }
             super.onBackPressed();
         }
+
     }
     private void replaceFragment(Fragment fragment){
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.content_frame, fragment);
         transaction.addToBackStack(null);
         transaction.commit();
+    }
+
+    // dang ky broadcast connect
+    @Override
+    protected void onStart() {
+        super.onStart();
+        IntentFilter intentFilter = new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
+        registerReceiver(networkBroadcastReceiver, intentFilter);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        unregisterReceiver(networkBroadcastReceiver);
     }
 }

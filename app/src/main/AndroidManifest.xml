@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <application
         android:name=".fragment.notification.NotificationApplication"
         android:allowBackup="true"
@@ -14,10 +15,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Food_app"
         tools:targetApi="31">
-<!--        <activity android:name=".fragment.tab_home.HomeTab"-->
-<!--            android:exported="false">-->
-
-<!--        </activity>-->
         <activity
             android:name=".fragment.Register_login.RegisterActivity"
             android:exported="true">
@@ -46,11 +43,18 @@
             android:name=".MainActivity"
             android:exported="false"/>
 
-        <activity
-            android:name=".fragment.AccountFragment"
-            android:exported="false"
-            >
-        </activity>
+<!--        <activity-->
+<!--            android:name=".fragment.AccountFragment"-->
+<!--            android:exported="false"-->
+<!--            >-->
+<!--        </activity>-->
+<!--        <receiver android:name=".broadcast.myBroadcastReceiver"-->
+<!--            android:exported="false">-->
+<!--            <intent-filter>-->
+<!--                <action android:name="android.net.conn.CONNECTIVITY_ACTION"/>-->
+<!--            </intent-filter>-->
+<!--        </receiver>-->
+        
     </application>
 
 
