@@ -8,13 +8,18 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.Context;
+import android.content.Intent;
 import android.content.IntentFilter;
 import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
 
+import com.example.food_app.broadcast.AutoNotificationBroadcastReceiver;
+import com.example.food_app.broadcast.BatteryLowBroadcastReceiver;
 import com.example.food_app.broadcast.NetworkBroadcastReceiver;
 import com.example.food_app.fragment.AccountFragment;
 import com.example.food_app.fragment.ContactFragment;
@@ -29,8 +34,12 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 import com.google.android.material.navigation.NavigationView;
 
+import java.util.Calendar;
+
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private NetworkBroadcastReceiver networkBroadcastReceiver = new NetworkBroadcastReceiver();
+    private BatteryLowBroadcastReceiver batteryLowBroadcastReceiver = new BatteryLowBroadcastReceiver();
+    private AutoNotificationBroadcastReceiver autoNotificationBroadcastReceiver = new AutoNotificationBroadcastReceiver();
     private DrawerLayout myDrawerLayout;
     private static final int TAB_HOME = 0;
     private static final int FRAGMENT_ACCOUNT = 1;
@@ -91,7 +100,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         });
         //event scroll an/ hien menu bottom
         myDrawerLayout.setOnTouchListener(new TranslateAnimation(this, myBottomnavigationView));
-
     }
 //mo menu main drawer(icon user goc tren ben phai)
     @Override
@@ -161,13 +169,23 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     protected void onStart() {
         super.onStart();
-        IntentFilter intentFilter = new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
-        registerReceiver(networkBroadcastReceiver, intentFilter);
+        IntentFilter intentFilter_1 = new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
+        registerReceiver(networkBroadcastReceiver, intentFilter_1);
+
+        IntentFilter intentFilter_2 = new IntentFilter(Intent.ACTION_BATTERY_LOW);
+        registerReceiver(batteryLowBroadcastReceiver,intentFilter_2);
+
+//        registerReceiver(autoNotificationBroadcastReceiver,null);
     }
 
     @Override
     protected void onStop() {
         super.onStop();
         unregisterReceiver(networkBroadcastReceiver);
+
+        unregisterReceiver(batteryLowBroadcastReceiver);
+
+//        unregisterReceiver(autoNotificationBroadcastReceiver);
     }
+
 }
