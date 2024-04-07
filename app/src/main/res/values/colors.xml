@@ -9,4 +9,6 @@
     <color name="blue">#00BCD4</color>
     <color name="green">#91E62D</color>
     <color name="magenta">#673AB7</color>
+    <color name="grey">#6C6871</color>
+    <color name="grey_2">#8FC1C1C3</color>
 </resources>

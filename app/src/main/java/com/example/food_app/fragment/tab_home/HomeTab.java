@@ -7,10 +7,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.ViewFlipper;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -28,6 +30,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class HomeTab extends Fragment {
@@ -40,9 +43,12 @@ public class HomeTab extends Fragment {
     private CartTab cart = new CartTab();
 
     private TextView textCartItemCount;
+    List<Food> alProduct = new ArrayList<>();
     MainActivity mainActivity;
 
     ViewFlipper v_flipper;
+
+    private SearchView searchView;
 
     public HomeTab() {
     }
@@ -51,7 +57,25 @@ public class HomeTab extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         myView = inflater.inflate(R.layout.tab_home, container, false);
+        /////////search view
+        searchView = myView.findViewById(R.id.searchView);
+        searchView.clearFocus();
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                filesList(query);
+                return false;
+            }
 
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                filesList(newText);
+                return false;
+            }
+        });
+
+
+////////////////
         recyclerView = myView.findViewById(R.id.rcv_home);
         mainActivity = (MainActivity) getContext();
         initData();
@@ -67,6 +91,24 @@ public class HomeTab extends Fragment {
 
         return myView;
     }
+
+    private void filesList(String newText) {
+        List<Food> filteredList = new ArrayList<>();
+        for(Food user : alProduct){
+            if(user.getName().toLowerCase().contains(newText.toLowerCase())){
+                filteredList.add(user);
+            }
+        }
+        if (filteredList.isEmpty()) {
+            Toast.makeText(getContext(),"no data found", Toast.LENGTH_LONG).show();
+            foodAdapter.setFilteredList(filteredList);
+        }else{
+           foodAdapter.setFilteredList(filteredList);
+        }
+
+
+    }
+
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -79,7 +121,7 @@ public class HomeTab extends Fragment {
     }
 
     private void initData() {
-        ArrayList<Food> alProduct = new ArrayList<>();
+
         for (int i = 0; i < 100; i++) {
             Food p = new Food(i, "ProductName" + i);
             int resID = getResId("ff_" + i%9, R.drawable.class);

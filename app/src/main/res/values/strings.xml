@@ -24,6 +24,7 @@
     </string>
     <string name="attachment_summary_off">Only download attachments when manually requested</string>
     <string name="thong_bao">Thông báo</string>
+    <string name="thong_bao_2">Thông báo đơn hàng</string>
     <string name="ed_email">Email</string>
     <string name="ed_username">User Name</string>
     <string name="ed_pass">Password</string>
@@ -34,5 +35,6 @@
     <string name="add_product">Đã thêm vào giỏ hàng</string>
     <string name="channel_name">chanel1</string>
     <string name="channel_description">this is channel 1</string>
+    <string name="clear_all">Đọc tất cả</string>
 
 </resources>
