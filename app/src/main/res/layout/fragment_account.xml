@@ -82,7 +82,7 @@
                     android:layout_below="@+id/tv_phone"
                     android:layout_toEndOf="@+id/img_phone"
                     android:singleLine="true"
-                    android:text="+84123456789" />
+                    android:text="0123456789" />
 
                 <ImageView
                     android:id="@+id/ic_phone"

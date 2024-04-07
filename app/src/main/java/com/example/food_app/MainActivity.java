@@ -8,13 +8,17 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 
 import com.example.food_app.fragment.AccountFragment;
 import com.example.food_app.fragment.ContactFragment;
 import com.example.food_app.fragment.HistoryFragment;
+import com.example.food_app.fragment.Register_login.LoginActivity;
 import com.example.food_app.fragment.SettingFragment;
 import com.example.food_app.fragment.cart.CartTab;
 import com.example.food_app.fragment.notification.NoticeTab;
@@ -38,6 +42,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private int myCurrentFragment =  TAB_HOME;
     private NavigationView myNavigationView;
     private BottomNavigationView myBottomnavigationView;
+
+    private Button btnDangXuat;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,6 +93,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         //event scroll an/ hien menu bottom
         myDrawerLayout.setOnTouchListener(new TranslateAnimation(this, myBottomnavigationView));
 
+        btnDangXuat = findViewById(R.id.btn_logout);
+        btnDangXuat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 //mo menu main drawer(icon user goc tren ben phai)
     @Override

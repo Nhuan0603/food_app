@@ -1,23 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/Pay"
     >
-
     <TextView
         android:id="@+id/textView2"
         android:layout_width="169dp"
         android:layout_height="49dp"
-        android:layout_marginTop="4dp"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="sans-serif"
+        android:layout_marginTop="5dp"
         android:text="Thanh toán"
         android:textSize="30sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        >
 
     </TextView>
 
@@ -26,23 +25,18 @@
         android:id="@+id/view3"
         android:layout_width="300dp"
         android:layout_height="5dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="15dp"
+        android:layout_centerHorizontal="true"
         android:background="@color/orange_2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2">
+        android:layout_below="@+id/textView2">
     </View>
 
     <RelativeLayout
         android:id="@+id/relativeLayout"
-        android:layout_width="408dp"
+        android:layout_width="match_parent"
         android:layout_height="129dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view3">
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/view3">
 
         <TextView
             android:id="@+id/tv_distant"
@@ -92,6 +86,7 @@
             android:layout_marginTop="12dp"
             android:layout_toEndOf="@+id/imageView"
             android:text="Địa chỉ nhận hàng"
+            android:textStyle="bold"
             android:textSize="18sp">
 
         </TextView>
@@ -139,7 +134,7 @@
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
             android:layout_marginTop="52dp"
-            android:layout_marginEnd="13dp"
+            android:layout_marginEnd="15dp"
             android:src="@drawable/ic_nagitive_next_orange">
 
         </ImageView>
@@ -149,28 +144,21 @@
         android:id="@+id/tv_tonngPhiTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="15dp"
         android:text="Tổng phí"
         android:textSize="25sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.051"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/relativeLayout">
+        android:layout_below="@+id/relativeLayout">
 
     </TextView>
 
     <RelativeLayout
         android:id="@+id/relativeLayout2"
-        android:layout_width="408dp"
-
+        android:layout_width="match_parent"
         android:layout_height="205dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="5dp"
         android:background="#31808080"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.333"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_tonngPhiTitle">
+        android:layout_below="@+id/tv_tonngPhiTitle">
 
         <TextView
             android:id="@+id/tv_priceProductTitle"
@@ -191,7 +179,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_marginTop="30dp"
-            android:layout_marginRight="40dp"
+            android:layout_marginRight="25dp"
             android:text="Price Product"
             android:textSize="19sp">
 
@@ -216,12 +204,11 @@
             android:layout_width="132dp"
             android:layout_height="wrap_content"
             android:layout_below="@+id/tv_price"
+            android:textAlignment="textEnd"
             android:layout_alignParentEnd="true"
-            android:layout_marginStart="95dp"
-            android:layout_marginTop="22dp"
-            android:layout_marginEnd="27dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="25dp"
             android:layout_marginRight="40dp"
-            android:layout_toEndOf="@+id/tv_priceDeliveryTitle"
             android:text="Price Delivery"
             android:textSize="19sp">
 
@@ -263,7 +250,7 @@
             android:layout_below="@+id/back"
             android:layout_alignParentEnd="true"
             android:layout_marginTop="20dp"
-            android:layout_marginRight="30dp"
+            android:layout_marginRight="25dp"
             android:text="Total"
             android:textSize="20sp"
             android:textStyle="bold">
@@ -275,27 +262,21 @@
         android:id="@+id/tv_methodPay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="15dp"
         android:text="Phương thức thanh toán"
         android:textSize="23sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.098"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/relativeLayout2">
+        android:layout_below="@+id/relativeLayout2">
 
     </TextView>
 
     <RelativeLayout
-        android:orientation="vertical"
         android:id="@+id/rl_methodPay"
         android:background="#31808080"
-        app:layout_constraintHorizontal_bias="0.333"
         android:layout_width="match_parent"
+        android:layout_marginTop="5dp"
         android:layout_height="50dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_methodPay">
+        android:layout_below="@+id/tv_methodPay">
 
         <ImageView
             android:id="@+id/ic_cash"
@@ -340,18 +321,18 @@
         android:id="@+id/rl_dieuKhoan"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="15dp"
         android:background="#31808080"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rl_methodPay">
+        android:layout_below="@+id/rl_methodPay">
 
         <ImageView
             android:id="@+id/img_dieuKhoan"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:layout_margin="15dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginBottom="15dp"
             android:src="@drawable/ic_dieu_khoan">
 
         </ImageView>
@@ -362,6 +343,8 @@
             android:text="Nhấn ĐẶT HÀNG đồng nghĩa với việc bạn đồng ý tuân theo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
+
+
         </TextView>
 
 
@@ -370,12 +353,10 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rl_dieuKhoan"
-        app:layout_constraintVertical_bias="1.0">
+        android:layout_below="@+id/rl_dieuKhoan"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="1dp">
 
         <TextView
             android:id="@+id/tv_totalTitleBottom"
@@ -395,6 +376,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/tv_totalTitleBottom"
+            android:textAlignment="textEnd"
             android:layout_alignParentStart="true"
             android:layout_alignParentBottom="true"
             android:layout_marginStart="231dp"
@@ -417,4 +399,5 @@
         </Button>
     </RelativeLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+</RelativeLayout>

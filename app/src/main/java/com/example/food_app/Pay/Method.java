@@ -9,6 +9,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.food_app.R;
+import com.example.food_app.fragment.cart.CartTab;
 
 public class Method extends AppCompatActivity {
     private ImageView imgBackToPay;
@@ -21,8 +22,9 @@ public class Method extends AppCompatActivity {
         imgBackToPay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), Pay.class);
-                startActivity(intent);
+                Intent intent = new Intent();
+                setResult(RESULT_OK, intent);
+                finish();
             }
         });
     }
