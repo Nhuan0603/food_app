@@ -22,7 +22,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.food_app.MainActivity;
 import com.example.food_app.Pay.Pay;
 import com.example.food_app.R;
-import com.example.food_app.databinding.ActivityMainBinding;
 
 
 public class CartTab extends Fragment {
@@ -31,7 +30,10 @@ public class CartTab extends Fragment {
     private RecyclerView rvCart;
     private TextView tvTotal;
     private Button btnThanhToan;
+    private Pay mPay;
     private CartModel cart = new CartModel();
+
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -49,20 +51,23 @@ public class CartTab extends Fragment {
         tvTotal.setText("" + this.cart.getTotalPrice());
 
         btnThanhToan = myView.findViewById(R.id.btn_thanhToan);
+
+        sentdataToPay();
+        return myView;
+    }
+
+    public void updateData(){
+        tvTotal.setText("" + this.cart.getTotalPrice());
+    }
+    public void sentdataToPay(){
         btnThanhToan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), Pay.class);
+                intent.putExtra("totalPrice", tvTotal.getText().toString().trim());
                 startActivity(intent);
             }
         });
-
-        return myView;
-    }
-    public void updateData(){
-
-        tvTotal.setText("" + this.cart.getTotalPrice());
-
     }
 
 }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -10,58 +10,52 @@
         android:id="@+id/tv_mycart"
         android:layout_width="188dp"
         android:layout_height="51dp"
+        android:layout_marginBottom="15dp"
         android:fontFamily="sans-serif"
         android:text="My Cart"
+        android:layout_centerHorizontal="true"
         android:textColor="@color/orange_2"
-        android:textSize="40sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:textSize="40sp">
 
     </TextView>
 
     <View
         android:id="@+id/view"
+        android:layout_centerHorizontal="true"
         android:layout_width="300dp"
         android:layout_height="7dp"
         android:layout_marginTop="2dp"
-        android:background="@color/orange_2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_mycart">
+        android:layout_below="@+id/tv_mycart"
+        android:background="@color/orange_2">
 
     </View>
+
+    <!--    <RelativeLayout-->
+    <!--        android:id="@+id/rltCartTotal"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content">-->
+
+    <!--    </RelativeLayout>-->
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvCart"
         android:layout_width="410dp"
         android:layout_height="480dp"
         android:layout_marginTop="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view">
+        android:layout_below="@+id/view"
+        >
 
     </androidx.recyclerview.widget.RecyclerView>
 
-    <!--    <RelativeLayout-->
-<!--        android:id="@+id/rltCartTotal"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content">-->
-
-<!--    </RelativeLayout>-->
-
     <View
         android:id="@+id/view2"
+        android:layout_centerHorizontal="true"
         android:layout_width="300dp"
         android:layout_height="7dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="15dp"
         android:background="@color/orange_2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rvCart">
+        android:layout_below="@+id/rvCart"
+        >
 
     </View>
 
@@ -70,13 +64,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="15dp"
         android:text="Total"
         android:textSize="25sp"
-        app:layout_constraintBottom_toTopOf="@+id/btn_thanhToan"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view2"
-        app:layout_constraintVertical_bias="0.307">
+        android:layout_below="@+id/view2"
+        >
 
     </TextView>
 
@@ -85,12 +77,12 @@
         android:layout_width="179dp"
         android:layout_height="51dp"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="15dp"
         android:text="Price"
         android:textAlignment="center"
         android:textSize="25sp"
-        app:layout_constraintStart_toEndOf="@+id/textView"
-        app:layout_constraintTop_toBottomOf="@+id/view2">
+        android:layout_below="@+id/view2"
+        android:layout_toRightOf="@+id/textView">
 
     </TextView>
 
@@ -98,13 +90,13 @@
         android:id="@+id/tv_vnd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/view2"
+        android:layout_marginLeft="35dp"
+        android:layout_marginTop="15dp"
         android:layout_marginEnd="56dp"
+        android:layout_toRightOf="@+id/tv_total"
         android:text="VND"
-        android:textSize="25sp"
-        app:layout_constraintBottom_toTopOf="@+id/btn_thanhToan"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view2"
-        app:layout_constraintVertical_bias="0.509">
+        android:textSize="25sp">
 
     </TextView>
 
@@ -114,13 +106,11 @@
         android:layout_height="52dp"
         android:layout_marginTop="8dp"
         android:backgroundTint="#FF5722"
+        android:layout_below="@+id/tv_total"
         android:text="Thanh toán"
-        android:textSize="25sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_total">
+        android:textSize="25sp">
 
     </Button>
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

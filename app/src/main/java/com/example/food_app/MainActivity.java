@@ -8,22 +8,17 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
-import android.app.AlarmManager;
-import android.app.PendingIntent;
-import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
-import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 
-import com.example.food_app.broadcast.AutoNotificationBroadcastReceiver;
-import com.example.food_app.broadcast.BatteryLowBroadcastReceiver;
-import com.example.food_app.broadcast.NetworkBroadcastReceiver;
 import com.example.food_app.fragment.AccountFragment;
 import com.example.food_app.fragment.ContactFragment;
 import com.example.food_app.fragment.HistoryFragment;
+import com.example.food_app.fragment.Register_login.LoginActivity;
 import com.example.food_app.fragment.SettingFragment;
 import com.example.food_app.fragment.cart.CartTab;
 import com.example.food_app.fragment.notification.NotificationTab;
@@ -34,13 +29,9 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 import com.google.android.material.navigation.NavigationView;
 
-import java.util.Calendar;
-
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
-    private NetworkBroadcastReceiver networkBroadcastReceiver = new NetworkBroadcastReceiver();
-    private BatteryLowBroadcastReceiver batteryLowBroadcastReceiver = new BatteryLowBroadcastReceiver();
-    private AutoNotificationBroadcastReceiver autoNotificationBroadcastReceiver = new AutoNotificationBroadcastReceiver();
     private DrawerLayout myDrawerLayout;
+
     private static final int TAB_HOME = 0;
     private static final int FRAGMENT_ACCOUNT = 1;
     private static final int FRAGMENT_HISTORY = 2;
@@ -51,7 +42,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private int myCurrentFragment =  TAB_HOME;
     private NavigationView myNavigationView;
     private BottomNavigationView myBottomnavigationView;
-    private long backPressTime;
+
+    private Button btnDangXuat;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -100,6 +92,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         });
         //event scroll an/ hien menu bottom
         myDrawerLayout.setOnTouchListener(new TranslateAnimation(this, myBottomnavigationView));
+
+        btnDangXuat = findViewById(R.id.btn_logout);
+        btnDangXuat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 //mo menu main drawer(icon user goc tren ben phai)
     @Override
@@ -151,41 +152,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         if (myDrawerLayout.isDrawerOpen(GravityCompat.END)){
             myDrawerLayout.closeDrawer(GravityCompat.END);
         }else {
-//            if (backPressTime + 2000 < System.currentTimeMillis() ){
-//                Toast.makeText(this, "Bấm thêm lần nữa để thoát ứng dụng", Toast.LENGTH_SHORT).show();
-//            }
             super.onBackPressed();
         }
-
     }
     private void replaceFragment(Fragment fragment){
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.content_frame, fragment);
-        transaction.addToBackStack(null);
         transaction.commit();
     }
-
-    // dang ky broadcast connect
-    @Override
-    protected void onStart() {
-        super.onStart();
-        IntentFilter intentFilter_1 = new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
-        registerReceiver(networkBroadcastReceiver, intentFilter_1);
-
-        IntentFilter intentFilter_2 = new IntentFilter(Intent.ACTION_BATTERY_LOW);
-        registerReceiver(batteryLowBroadcastReceiver,intentFilter_2);
-
-//        registerReceiver(autoNotificationBroadcastReceiver,null);
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-        unregisterReceiver(networkBroadcastReceiver);
-
-        unregisterReceiver(batteryLowBroadcastReceiver);
-
-//        unregisterReceiver(autoNotificationBroadcastReceiver);
-    }
-
 }

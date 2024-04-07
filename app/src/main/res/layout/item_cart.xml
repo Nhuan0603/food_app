@@ -12,8 +12,8 @@
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/img_Food"
-            android:layout_width="130dp"
-            android:layout_height="130dp"
+            android:layout_width="81dp"
+            android:layout_height="73dp"
             android:layout_alignParentTop="true"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="12dp"
@@ -21,13 +21,13 @@
 
         <TextView
             android:id="@+id/tv_foodName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="136dp"
+            android:layout_height="25dp"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="10dp"
             android:layout_toRightOf="@+id/img_Food"
             android:text="Food Name"
-            android:textSize="30dp"
+            android:textSize="20sp"
             android:textStyle="bold" />
 
         <TextView
@@ -35,49 +35,48 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/tv_foodName"
-            android:layout_marginLeft="19dp"
-            android:layout_marginTop="19dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="5dp"
             android:layout_toRightOf="@+id/img_Food"
 
             android:text="-"
-            android:textSize="50sp" />
+            android:textSize="40sp" />
 
         <EditText
             android:id="@+id/ed_numberCartItem"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/tv_foodName"
-            android:layout_marginStart="12dp"
+            android:layout_marginStart="3dp"
             android:layout_marginLeft="10dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="6dp"
             android:layout_toEndOf="@+id/tv_minusCartItem"
             android:enabled="false"
             android:text="99"
-            android:textSize="30sp" />
+            android:textSize="20sp" />
 
         <TextView
             android:id="@+id/tv_plusCartItem"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/tv_foodName"
-            android:layout_marginLeft="11dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="11dp"
             android:layout_toRightOf="@+id/ed_numberCartItem"
             android:text="+"
-            android:textSize="30sp" />
+            android:textSize="25sp" />
 
         <TextView
             android:id="@+id/tv_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/tv_plusCartItem"
-            android:layout_marginStart="54dp"
+            android:layout_below="@+id/tv_foodName"
+            android:layout_marginStart="57dp"
             android:layout_marginLeft="10dp"
-            android:layout_marginTop="30dp"
-            android:layout_marginBottom="21dp"
+            android:layout_marginTop="11dp"
             android:layout_toEndOf="@+id/tv_plusCartItem"
             android:text="Food price"
-            android:textSize="18dp" />
+            android:textSize="15dp" />
 
         <TextView
             android:id="@+id/tv_TotalPriceItem"
@@ -85,10 +84,10 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/tv_price"
             android:layout_alignParentEnd="true"
-            android:layout_marginTop="6dp"
-            android:layout_marginEnd="12dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginEnd="108dp"
             android:text="Total price"
-            android:textSize="25sp" />
+            android:textSize="20sp" />
     </RelativeLayout>
 
 </androidx.cardview.widget.CardView>
