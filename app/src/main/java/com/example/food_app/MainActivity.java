@@ -9,12 +9,16 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
+import android.content.IntentFilter;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.food_app.broadcast.BatteryLowBroadcastReceiver;
+import com.example.food_app.broadcast.NetworkBroadcastReceiver;
 import com.example.food_app.fragment.AccountFragment;
 import com.example.food_app.fragment.ContactFragment;
 import com.example.food_app.fragment.HistoryFragment;
@@ -30,8 +34,9 @@ import com.google.android.material.navigation.NavigationBarView;
 import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+    private NetworkBroadcastReceiver networkBroadcastReceiver = new NetworkBroadcastReceiver();
+    private BatteryLowBroadcastReceiver batteryLowBroadcastReceiver = new BatteryLowBroadcastReceiver();
     private DrawerLayout myDrawerLayout;
-
     private static final int TAB_HOME = 0;
     private static final int FRAGMENT_ACCOUNT = 1;
     private static final int FRAGMENT_HISTORY = 2;
@@ -160,5 +165,22 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         transaction.replace(R.id.content_frame, fragment);
         transaction.addToBackStack(null);
         transaction.commit();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        IntentFilter i = new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
+        registerReceiver(networkBroadcastReceiver,i);
+
+        IntentFilter i_2 = new IntentFilter(Intent.ACTION_BATTERY_LOW);
+        registerReceiver(batteryLowBroadcastReceiver,i_2);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        unregisterReceiver(networkBroadcastReceiver);
+        unregisterReceiver(batteryLowBroadcastReceiver);
     }
 }

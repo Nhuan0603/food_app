@@ -33,8 +33,8 @@ public class AccountFragment extends Fragment {
     View myView;
     private Pay pay;
 
-    public AccountFragment() {
-    }
+//    public AccountFragment() {
+//    }
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
