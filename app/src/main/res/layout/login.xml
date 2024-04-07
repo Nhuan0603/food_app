@@ -88,6 +88,16 @@
         android:backgroundTint="@color/orange_2"
         android:padding="10dp"/>
     <TextView
+        android:id="@+id/fogot"
+        android:textColor="@color/blue"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Forgot Password"
+        android:gravity="center"
+        android:textSize="20dp"
+        android:layout_below="@+id/btnsignin1"
+        />
+    <TextView
         android:id="@+id/tv_backRegister"
         android:text="Back to Register"
         android:layout_marginTop="10dp"
@@ -97,5 +107,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
     </TextView>
+
 
 </LinearLayout>

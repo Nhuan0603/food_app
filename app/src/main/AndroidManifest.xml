@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:name=".fragment.notification.NotificationApplication"
@@ -17,6 +17,12 @@
         android:theme="@style/Theme.Food_app"
         tools:targetApi="31">
         <activity
+            android:name=".fragment.Register_login.ResetActivity"
+            android:exported="false" />
+        <activity
+            android:name=".fragment.Register_login.PasswordActivity"
+            android:exported="false" />
+        <activity
             android:name=".fragment.Register_login.RegisterActivity"
             android:exported="true">
             <intent-filter>
@@ -25,28 +31,20 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".fragment.Register_login.LoginActivity"
-            android:exported="false"/>
-
+            android:exported="false" />
         <activity
             android:name=".Pay.Pay"
-            android:exported="false">
-        </activity>
-
+            android:exported="false" />
         <activity
             android:name=".Pay.Method"
-            android:exported="false">
-        </activity>
-
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
-            android:exported="false"/>
+            android:exported="false" />
 
-        <receiver android:name=".broadcast.AutoNotificationBroadcastReceiver"/>
-        
+        <receiver android:name=".broadcast.AutoNotificationBroadcastReceiver" />
     </application>
-
 
 </manifest>

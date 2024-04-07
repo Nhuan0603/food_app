@@ -30,10 +30,13 @@ public class LoginActivity extends AppCompatActivity {
     TextInputEditText passwordLogin;
 
     DBHelper DB;
+    TextView forgot;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
+
+        forgot = findViewById(R.id.fogot);
         username = (TextInputEditText) findViewById(R.id.ed_email_login_content);
         passwordLogin = (TextInputEditText) findViewById(R.id.ed_password_login_content);
         btnlogin = (Button) findViewById(R.id.btn_login_login);
@@ -64,6 +67,13 @@ public class LoginActivity extends AppCompatActivity {
                         Toast.makeText(LoginActivity.this, "Invalid Credential", Toast.LENGTH_SHORT).show();
                     }
                 }
+            }
+        });
+        forgot.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), PasswordActivity.class);
+                startActivity(intent);
             }
         });
 
