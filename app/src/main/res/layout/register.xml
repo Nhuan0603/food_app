@@ -53,7 +53,8 @@
                 android:layout_marginBottom="40dp"
                 android:hint="Repassword"
                 android:minHeight="48dp"
-                android:singleLine="true" />
+                android:singleLine="true"
+                android:inputType="textPassword"/>
 
             <Button
                 android:id="@+id/btn_register"
