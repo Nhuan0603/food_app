@@ -20,11 +20,12 @@ import com.example.food_app.fragment.tab_home.HomeTab;
 import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.FoodViewHolder> {
 
     private Context mContext;
-    private ArrayList<Food> foods;
+    private List<Food> foods;
 
     public CartModel cartModel = new CartModel();
 
@@ -32,6 +33,8 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.FoodViewHolder
         this.mContext = mContext;
         this.foods = foods;
     }
+
+
 
     @NonNull
     @Override
@@ -103,4 +106,9 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.FoodViewHolder
         }).show();
 
     }
+    public void setFilteredList(List<Food> filteredList){
+       this.foods = filteredList;
+       notifyDataSetChanged();
+    }
+
 }
