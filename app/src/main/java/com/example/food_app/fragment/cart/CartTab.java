@@ -32,11 +32,7 @@ public class CartTab extends Fragment {
     private Button btnThanhToan;
     private Pay mPay;
     private CartModel cart = new CartModel();
-    private Context mContext;
 
-    public CartTab(Context mContext) {
-        this.mContext = mContext;
-    }
 
     @Nullable
     @Override
