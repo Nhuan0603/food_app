@@ -30,7 +30,7 @@
         app:cardCornerRadius="30dp">
 
         <LinearLayout
-            android:id="@+id/linear_card"
+            android:id="@+id/linear_cardview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
