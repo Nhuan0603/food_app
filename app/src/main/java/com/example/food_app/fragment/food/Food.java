@@ -2,7 +2,7 @@ package com.example.food_app.fragment.food;
 
 import android.net.Uri;
 
-public class Food {
+public class Food{
    private int id;
    private String name;
    private String code;
@@ -61,4 +61,5 @@ public class Food {
     public void setImage(Uri image) {
         this.image = image;
     }
+
 }

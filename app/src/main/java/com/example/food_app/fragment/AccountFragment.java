@@ -1,8 +1,8 @@
 package com.example.food_app.fragment;
 
 import android.app.AlertDialog;
-import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -40,13 +40,7 @@ public class AccountFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         myView = inflater.inflate(R.layout.fragment_account, container, false);
 
-        pay = (Pay) getActivity();
-        btnSave = myView.findViewById(R.id.btn_save_card);
         Data();
-
-        edit_phone = myView.findViewById(R.id.ic_edit_phone);
-        edit_email = myView.findViewById(R.id.ic_edit_email);
-        edit_location = myView.findViewById(R.id.ic_edit_location);
         edit_phone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -68,7 +62,7 @@ public class AccountFragment extends Fragment {
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                sendDataToPay();
+                sendDataToPayWhenSaveInfor();
                 AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
                 builder.setTitle("Thong bao").setMessage("Da luu thanh cong").setCancelable(true)
                         .setPositiveButton("OK", new DialogInterface.OnClickListener() {
@@ -85,11 +79,16 @@ public class AccountFragment extends Fragment {
         return myView;
     }
 
+
     private void Data() {
+        edit_phone = myView.findViewById(R.id.ic_edit_phone);
+        edit_email = myView.findViewById(R.id.ic_edit_email);
+        edit_location = myView.findViewById(R.id.ic_edit_location);
         username = myView.findViewById(R.id.name_user_account);
         userEmail = myView.findViewById(R.id.ed_email);
         userPhone = myView.findViewById(R.id.ed_phone);
         userLocation = myView.findViewById(R.id.ed_location);
+        btnSave = myView.findViewById(R.id.btn_save_card);
     }
 
     public float soTienGiaoHang() { //bang so tien 1 km * so km
@@ -111,7 +110,8 @@ public class AccountFragment extends Fragment {
         return sum;
     }
 
-    private void sendDataToPay() {
+    private void sendDataToPayWhenSaveInfor() {
+        pay = (Pay) getActivity();
         String name = username.getText().toString().trim();
         pay.getUserName().setText(name);
         String phone = userPhone.getText().toString().trim();
@@ -119,13 +119,22 @@ public class AccountFragment extends Fragment {
         String locate = userLocation.getText().toString().trim();
         pay.getLocation().setText(locate);
         pay.getDistant().setText("" + randomKm);
-
         float deliveryPrice = soTienGiaoHang();
         pay.getDeliveryPrice().setText(String.valueOf(deliveryPrice));
-
         float totalPrice = TongTien();
         pay.getPriceTotal().setText(String.valueOf(totalPrice));
         pay.getTotalBottomPrice().setText(String.valueOf(totalPrice));
+        pay = null;
+    }
+    private void sentDataToPay() {
+        if (getActivity() != null) {
+            Intent intent = new Intent(getActivity(), Pay.class);
+            intent.putExtra("name", username.getText().toString().trim());
+            intent.putExtra("phone", userPhone.getText().toString().trim());
+            intent.putExtra("location", userLocation.getText().toString().trim());
+            intent.putExtra("distance", randomKm);
+            getActivity().startActivity(intent);
+        }
     }
 
 }

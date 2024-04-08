@@ -18,15 +18,20 @@ import com.example.food_app.fragment.food.Food;
 
 public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder>{
 
-    private CartModel cart;
+    private CartModel cartModel;
     private Context mContext;
-    public CartTab cartTab;
+    private CartAdapterListener mListener;
 
-    public CartAdapter( Context mContext, CartModel cart) {
+    public CartAdapter( Context mContext, CartModel cart, CartAdapterListener listener) {
         this.mContext = mContext;
-        this.cart = cart;
+        this.cartModel = cart;
+        this.mListener = listener;
 
     }
+    public interface CartAdapterListener {
+        void onUpdateData();
+    }
+
 
     @NonNull
     @Override
@@ -39,16 +44,16 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder>{
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        final Integer pid = cart.getFoodByOrder(position).getId();
-        final Food p = cart.foodRepository.getFood(pid);
+        final Integer pid = cartModel.getFoodByOrder(position).getId();
+        final Food p = cartModel.foodRepository.getFood(pid);
 
         String sFoodName = p.getName();
-        Integer amount = cart.cartList.get(pid);
+        Integer amount = cartModel.cartList.get(pid);
         holder.tvName.setText(sFoodName);
         holder.tvPrice.setText(""+p.getPrice());
         holder.imgFood.setImageURI(p.getImage());
         holder.number.setText("" + amount);
-        holder.tvTotalPriceItem.setText("" + cart.getLinePrice(p));
+        holder.tvTotalPriceItem.setText("" + cartModel.getLinePrice(p));
 
 //        holder.relativeLayout.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -66,33 +71,31 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder>{
 //        });
 
 
-//        holder.tvPlus.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                cart.addCart(p);
-//                Integer amount = cart.cartList.get(pid);
-//                holder.number.setText(""+ amount );
-//                holder.tvTotalPriceItem.setText("" + cart.getLinePrice(p));
-//                cartTab.updateData();
-//            }
-//        });
-//        holder.tvMinus.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                cart.removeCart(p);
-//                Integer amount = cart.cartList.get(pid);
-//                holder.number.setText(""+ amount );
-//                holder.tvTotalPriceItem.setText("" + cart.getLinePrice(p));
-//                ((CartTab) mContext).updateData();
-//            }
-//
-//
-//        });
+        holder.tvPlus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                cartModel.addCart(p);
+                Integer amount = cartModel.cartList.get(pid);
+                holder.number.setText(""+ amount );
+                holder.tvTotalPriceItem.setText("" + cartModel.getLinePrice(p));
+                mListener.onUpdateData();
+            }
+        });
+        holder.tvMinus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                cartModel.removeCart(p);
+                Integer amount = cartModel.cartList.get(pid);
+                holder.number.setText(""+ amount );
+                holder.tvTotalPriceItem.setText("" + cartModel.getLinePrice(p));
+                mListener.onUpdateData();
+            }
+        });
     }
 
     @Override
     public int getItemCount() {
-        return cart.cartList.size();
+        return cartModel.cartList.size();
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder{

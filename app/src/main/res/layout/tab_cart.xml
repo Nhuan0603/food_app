@@ -24,7 +24,7 @@
         android:layout_centerHorizontal="true"
         android:layout_width="300dp"
         android:layout_height="7dp"
-        android:layout_marginTop="2dp"
+        android:layout_marginTop="5dp"
         android:layout_below="@+id/tv_mycart"
         android:background="@color/orange_2">
 
@@ -34,21 +34,19 @@
         android:id="@+id/rvCart"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
         android:layout_below="@+id/view"
-        >
+        android:layout_marginTop="8dp">
 
     </androidx.recyclerview.widget.RecyclerView>
 
     <View
         android:id="@+id/view2"
-        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/rvCart"
         android:layout_width="300dp"
         android:layout_height="7dp"
-        android:layout_marginTop="15dp"
-        android:background="@color/orange_2"
-        android:layout_below="@+id/rvCart"
-        >
+        android:layout_marginTop="5dp"
+        android:layout_centerHorizontal="true"
+        android:background="@color/orange_2">
 
     </View>
 

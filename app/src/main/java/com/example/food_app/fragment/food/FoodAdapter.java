@@ -26,14 +26,13 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.FoodViewHolder
 
     private Context mContext;
     private List<Food> foods;
-
+    private SnackbarListener snackbarListener;
     public CartModel cartModel = new CartModel();
 
     public FoodAdapter(Context mContext, ArrayList<Food> foods) {
         this.mContext = mContext;
         this.foods = foods;
     }
-
 
 
     @NonNull
@@ -77,6 +76,9 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.FoodViewHolder
         return foods.size();
     }
 
+    public interface CartClickListener {
+    }
+
     public class FoodViewHolder extends RecyclerView.ViewHolder{
 
         private ImageView imgFood;
@@ -95,16 +97,24 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.FoodViewHolder
 
         }
     }
+
+    public interface SnackbarListener {
+        void showCartFragment();
+    }
+
+    public void setSnackbarListener(SnackbarListener listener) {
+        this.snackbarListener = listener;
+    }
     public void showSnackbar(View view, String message, int duration)
     {
         Snackbar.make(view, message, duration).setAction("Giỏ hàng", new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(view.getContext(), CartTab.class);
-                mContext.startActivity(intent);
+                if (snackbarListener != null) {
+                    snackbarListener.showCartFragment();
+                }
             }
         }).show();
-
     }
     public void setFilteredList(List<Food> filteredList){
        this.foods = filteredList;

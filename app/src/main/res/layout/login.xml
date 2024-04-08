@@ -9,7 +9,7 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/ed_email_login"
         android:layout_width="300dp"
-        android:hint="@string/ed_email"
+        android:hint="Username"
         android:layout_gravity="center"
         app:boxCornerRadiusBottomStart="20dp"
         app:boxCornerRadiusBottomEnd="20dp"
@@ -24,7 +24,7 @@
         android:textColorHint="#80808080"
 
         app:helperTextEnabled="true"
-        app:helperText="Enter Email"
+        app:helperText="Enter Username"
         app:counterTextColor="@color/green"
         app:helperTextTextColor="@color/green"
 
@@ -33,6 +33,7 @@
         android:layout_height="wrap_content">
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/ed_email_login_content"
+            android:textColor="@color/white"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:textSize="24sp"
@@ -69,6 +70,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/ed_password_login_content"
             android:layout_width="match_parent"
+            android:textColor="@color/white"
             android:layout_height="match_parent"
             android:inputType="textPassword"
             android:textSize="24sp"

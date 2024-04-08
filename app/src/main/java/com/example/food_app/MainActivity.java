@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private static final int FRAGMENT_HISTORY = 2;
     private static final int FRAGMENT_CONTACT = 3;
     private static final int FRAGMENT_SETTING = 4;
-    private static final int TAB_CART = 4;
+    private static final int TAB_CART = 5;
     public static final int TAB_NOTICE = 6;
     private int myCurrentFragment =  TAB_HOME;
     private NavigationView myNavigationView;

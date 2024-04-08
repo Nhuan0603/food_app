@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -14,6 +16,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -29,6 +32,7 @@ import com.example.food_app.scroll.TranslateAnimation;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.lang.reflect.Field;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -40,13 +44,11 @@ public class HomeTab extends Fragment {
     private FoodAdapter foodAdapter;
     private AppBarConfiguration appBarConfiguration;
     FoodRepository foodRepository;
-    private CartTab cart = new CartTab();
-
     private TextView textCartItemCount;
     List<Food> alProduct = new ArrayList<>();
     MainActivity mainActivity;
 
-    ViewFlipper v_flipper;
+    ViewFlipper viewFlipper;
 
     private SearchView searchView;
 
@@ -89,6 +91,17 @@ public class HomeTab extends Fragment {
         myBottomNavigation = getActivity().findViewById(R.id.menu_bottom);
         recyclerView.setOnTouchListener(new TranslateAnimation(getContext(), myBottomNavigation));
 
+        foodAdapter.setSnackbarListener(new FoodAdapter.SnackbarListener() {
+            @Override
+            public void showCartFragment() {
+                // Chuyển sang Fragment CartTab
+                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+                transaction.replace(R.id.content_frame, new CartTab());
+                transaction.addToBackStack(null);
+                transaction.commit();
+            }
+        });
+
         return myView;
     }
 
@@ -112,12 +125,8 @@ public class HomeTab extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
-        int image[] = {R.drawable.flipper1, R.drawable.flipper2, R.drawable.flipper3, R.drawable.flipper4};
-        v_flipper = view.findViewById(R.id.vf_flip_home);
-        for(int images: image){
-            flipperImage(images);
-        }
+        viewFlipper = view.findViewById(R.id.vf_flip_home);
+        ActionViewFlipper();
     }
 
     private void initData() {
@@ -127,11 +136,10 @@ public class HomeTab extends Fragment {
             int resID = getResId("ff_" + i%9, R.drawable.class);
             Uri imgUri = getUri(resID);
             p.setImage(imgUri);
-            p.setPrice(new Random().nextFloat() * 1000);
+            p.setPrice(new Random().nextFloat() * 10000);
             alProduct.add(p);
         }
         this.foodRepository = new FoodRepository(alProduct);
-
     }
 
     private Uri getUri(int resId) {
@@ -148,16 +156,26 @@ public class HomeTab extends Fragment {
         }
     }
 
-    public void flipperImage(int image){
-        ImageView imageView = new ImageView(getContext());
-        imageView.setBackgroundResource(image);
+    private void ActionViewFlipper() {
+        int[] quangcao = new int[]{
+                R.drawable.flipper1, // tên file drawable của bạn
+                R.drawable.flipper2,
+                R.drawable.flipper3,
+                R.drawable.flipper4,
+        };
 
-        v_flipper.addView(imageView);
-        v_flipper.setFlipInterval(4000);
-        v_flipper.setAutoStart(true);
-
-        v_flipper.setInAnimation(getContext(), android.R.anim.slide_in_left);
+        for (int image : quangcao) {
+            ImageView imageView = new ImageView(getContext());
+            imageView.setImageResource(image);
+            imageView.setScaleType(ImageView.ScaleType.FIT_XY);
+            viewFlipper.addView(imageView);
+        }
+        viewFlipper.setFlipInterval(5000);
+        viewFlipper.setAutoStart(true);
+        Animation slide_in = AnimationUtils.loadAnimation(getContext(), R.anim.slide_in_right);
+        Animation slide_out = AnimationUtils.loadAnimation(getContext(), R.anim.slide_out_right);
+        viewFlipper.setInAnimation(slide_in);
+        viewFlipper.setOutAnimation(slide_out);
     }
-
 
 }

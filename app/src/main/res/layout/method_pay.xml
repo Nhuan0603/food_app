@@ -30,7 +30,7 @@
     </ImageView>
 
     <RelativeLayout
-        android:id="@+id/relativeLayout3"
+        android:id="@+id/rl_Bank"
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:layout_marginTop="104dp"
@@ -52,6 +52,7 @@
         </ImageView>
 
         <TextView
+            android:id="@+id/tv_bank"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
@@ -74,14 +75,14 @@
     </RelativeLayout>
 
     <RelativeLayout
-        android:id="@+id/relativeLayout4"
+        android:id="@+id/rl_Card"
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/relativeLayout3">
+        app:layout_constraintTop_toBottomOf="@+id/rl_Bank">
 
         <ImageView
             android:id="@+id/img_cardBank"
@@ -96,6 +97,7 @@
         </ImageView>
 
         <TextView
+            android:id="@+id/tv_card"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
@@ -108,13 +110,14 @@
     </RelativeLayout>
 
     <RelativeLayout
+        android:id="@+id/rl_cash"
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:layout_marginTop="12dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/relativeLayout4">
+        app:layout_constraintTop_toBottomOf="@+id/rl_Card">
 
         <ImageView
             android:id="@+id/img_cash"
@@ -129,6 +132,7 @@
         </ImageView>
 
         <TextView
+            android:id="@+id/tv_cash"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
@@ -141,11 +145,12 @@
     </RelativeLayout>
 
     <Button
-        android:text="Đồng ý"
-        android:textSize="20sp"
+        android:id="@+id/btn_oke"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:backgroundTint="#FF5722"
+        android:text="Đồng ý"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">

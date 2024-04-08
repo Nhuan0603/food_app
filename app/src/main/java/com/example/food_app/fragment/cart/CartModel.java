@@ -44,9 +44,17 @@ public class CartModel {
 
     public void removeCart(Food p){
         Integer quantity = cartList.getOrDefault(p.getId(), 0);
-        if (quantity <=0) return;
-        cartList.put(p.getId(), quantity - 1);
-        totalPrice -= p.getPrice();
-    }
+        if (quantity <= 0) return;
 
+        // Trừ số lượng sản phẩm trong giỏ hàng
+        cartList.put(p.getId(), quantity - 1);
+
+        // Trừ giá của sản phẩm từ tổng giá trị
+        totalPrice -= p.getPrice();
+
+        // Nếu số lượng giảm xuống 0, thì loại bỏ sản phẩm khỏi giỏ hàng
+        if (quantity == 1) {
+            cartList.remove(p.getId());
+        }
+    }
 }

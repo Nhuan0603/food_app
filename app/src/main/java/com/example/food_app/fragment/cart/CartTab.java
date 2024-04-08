@@ -24,20 +24,19 @@ import com.example.food_app.Pay.Pay;
 import com.example.food_app.R;
 
 
-public class CartTab extends Fragment {
+public class CartTab extends Fragment implements CartAdapter.CartAdapterListener {
     private View myView;
     private MainActivity mainActivity;
     private RecyclerView rvCart;
     private TextView tvTotal;
     private Button btnThanhToan;
-    private Pay mPay;
-    private CartModel cart = new CartModel();
-
-
+    private CartModel cartModel = new CartModel();
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         myView = inflater.inflate(R.layout.tab_cart, container, false);
+
+        CartAdapter cartAdapter = new CartAdapter(getContext(), this.cartModel, this);
 
         rvCart = myView.findViewById(R.id.rvCart);
         tvTotal = myView.findViewById(R.id.tv_total);
@@ -46,9 +45,8 @@ public class CartTab extends Fragment {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(mainActivity, LinearLayoutManager.VERTICAL, false);
         rvCart.setLayoutManager(layoutManager);
 
-        CartAdapter cartAdapter =new CartAdapter(getContext(), this.cart);
         rvCart.setAdapter(cartAdapter);
-        tvTotal.setText("" + this.cart.getTotalPrice());
+        tvTotal.setText("" + this.cartModel.getTotalPrice());
 
         btnThanhToan = myView.findViewById(R.id.btn_thanhToan);
 
@@ -56,9 +54,6 @@ public class CartTab extends Fragment {
         return myView;
     }
 
-    public void updateData(){
-        tvTotal.setText("" + this.cart.getTotalPrice());
-    }
     public void sentdataToPay(){
         btnThanhToan.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,5 +64,8 @@ public class CartTab extends Fragment {
             }
         });
     }
-
+    @Override
+    public void onUpdateData() {
+        tvTotal.setText("" + this.cartModel.getTotalPrice());
+    }
 }

@@ -46,10 +46,7 @@ public class Pay extends AppCompatActivity {
         setContentView(R.layout.thanh_toan);
 
         data();
-
-        totalPriceProduct = getIntent().getStringExtra("totalPrice");
-        productPrice.setText(totalPriceProduct);
-
+        dataFromCartTab();
 
         imgFixMethodPay = findViewById(R.id.ic_fixMethodPay);
         imgFixMethodPay.setOnClickListener(new View.OnClickListener() {
@@ -59,7 +56,6 @@ public class Pay extends AppCompatActivity {
                 startActivityForResult(intent, REQUEST_METHOD);
             }
         });
-
         imgToAccount = findViewById(R.id.img_fixLocation);
         imgToAccount.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,12 +65,13 @@ public class Pay extends AppCompatActivity {
                 fragmentTransaction.replace(R.id.Pay, new AccountFragment());
                 fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();
-//                Intent i = new Intent(getApplication(),AccountFragment.class);
-//                startActivity(i);
             }
         });
+    }
 
-
+    private void dataFromCartTab() {
+        totalPriceProduct = getIntent().getStringExtra("totalPrice");
+        productPrice.setText(totalPriceProduct);
     }
 
 
@@ -85,8 +82,6 @@ public class Pay extends AppCompatActivity {
             // Cập nhật lại dữ liệu ở đây (nếu cần)
         }
     }
-
-
 
     public void data(){
         userName = findViewById(R.id.tv_userName);
@@ -99,12 +94,12 @@ public class Pay extends AppCompatActivity {
         totalBottomPrice = findViewById(R.id.tv_totalPriceBottom);
     }
 
-    public TextView getDistant() {
-        return distant;
-    }
-
     public TextView getUserName() {
         return userName;
+    }
+
+    public TextView getTotalBottomPrice() {
+        return totalBottomPrice;
     }
 
     public TextView getPhoneNumber() {
@@ -115,6 +110,10 @@ public class Pay extends AppCompatActivity {
         return location;
     }
 
+    public TextView getDistant() {
+        return distant;
+    }
+
     public TextView getProductPrice() {
         return productPrice;
     }
@@ -123,15 +122,11 @@ public class Pay extends AppCompatActivity {
         return deliveryPrice;
     }
 
-    public String getTotalPriceProduct() {
-        return totalPriceProduct;
-    }
-
     public TextView getPriceTotal() {
         return priceTotal;
     }
 
-    public TextView getTotalBottomPrice() {
-        return totalBottomPrice;
+    public String getTotalPriceProduct() {
+        return totalPriceProduct;
     }
 }
