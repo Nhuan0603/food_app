@@ -2,9 +2,11 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    style="@style/Screen"
     android:orientation="vertical">
 
     <TextView
+        style="@style/TEXT"
         android:id="@+id/tv_night_mode"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -16,6 +18,7 @@
         android:layout_height="wrap_content" />
 
     <TextView
+        style="@style/TEXT"
         android:id="@+id/tv_text_size"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -29,6 +32,7 @@
         android:progress="14" />
 
     <TextView
+        style="@style/TEXT"
         android:id="@+id/tv_sample_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -36,6 +40,7 @@
         android:textSize="14sp" />
 
     <Button
+        style="@style/BUTTON"
         android:id="@+id/btn_save_settings"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

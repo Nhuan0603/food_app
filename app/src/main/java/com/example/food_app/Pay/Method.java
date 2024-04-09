@@ -22,12 +22,6 @@ public class Method extends AppCompatActivity {
     private RelativeLayout rlCard;
     private RelativeLayout rlCash;
     private RelativeLayout rlbankHide;
-//    private ImageView imgvMBbank;
-//    private ImageView imgvbank;
-//    private ImageView imgvVPbank;
-//    private ImageView imgvViettinbank;
-//    private ImageView imgvCard;
-//    private ImageView imgvCash;
     private TextView tvMBbank;
     private TextView tvbank;
     private TextView tvVPbank;
@@ -38,6 +32,8 @@ public class Method extends AppCompatActivity {
     private TextView tvCard;
     private TextView tvCash;
     private Button btn_accept;
+    private ImageView arrow_down;
+    private ImageView arrow_up;
     private RelativeLayout selectedLayout;
     private LinearLayout selectedLinearLayout;
     private static final int My_REQUSET_CODE = 10;
@@ -69,8 +65,12 @@ public class Method extends AppCompatActivity {
                 int isVisible = rlbankHide.getVisibility();
                 if(isVisible == View.VISIBLE){
                     rlbankHide.setVisibility(View.GONE);
+                    arrow_up.setVisibility(View.GONE);
+                    arrow_down.setVisibility(View.VISIBLE);
                 }else {
                     rlbankHide.setVisibility(View.VISIBLE);
+                    arrow_up.setVisibility(View.VISIBLE);
+                    arrow_down.setVisibility(View.GONE);
                 }
             }
         });
@@ -185,12 +185,6 @@ public class Method extends AppCompatActivity {
         rlCash = (RelativeLayout) findViewById(R.id.rl_cash);
         rlCard = (RelativeLayout) findViewById(R.id.rl_Card);
         rlbankHide = (RelativeLayout) findViewById(R.id.rl_hideshow);
-//        imgvMBbank = (ImageView) findViewById(R.id.img_MBbank);
-//        imgvbank = (ImageView) findViewById(R.id.img_bank);
-//        imgvCard = (ImageView) findViewById(R.id.img_cardBank);
-//        imgvCash = (ImageView) findViewById(R.id.img_cash);
-//        imgvVPbank = (ImageView) findViewById(R.id.img_VPbank);
-//        imgvViettinbank = (ImageView) findViewById(R.id.img_viettinBank);
         tvMBbank = (TextView) findViewById(R.id.tv_MBbank);
         tvVPbank = (TextView) findViewById(R.id.tv_VPbank);
         tvbank = (TextView) findViewById(R.id.tv_bank);
@@ -201,5 +195,7 @@ public class Method extends AppCompatActivity {
         llVP = findViewById(R.id.ll_VPbank);
         llVT = findViewById(R.id.ll_ViettinBank);
         btn_accept = findViewById(R.id.btn_oke);
+        arrow_down = (ImageView) findViewById(R.id.img_arrowDownBank);
+        arrow_up = (ImageView) findViewById(R.id.img_arrow_up);
     }
 }
