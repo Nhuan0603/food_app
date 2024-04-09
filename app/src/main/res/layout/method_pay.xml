@@ -29,60 +29,163 @@
 
     </ImageView>
 
-    <RelativeLayout
-        android:id="@+id/rl_Bank"
+    <LinearLayout
+        android:id="@+id/ll_Bank"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:layout_marginTop="104dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:orientation="vertical"
         app:layout_constraintTop_toBottomOf="@+id/textView3">
 
-        <ImageView
-            android:id="@+id/img_bank"
-            android:layout_width="51dp"
-            android:layout_height="35dp"
-            android:layout_marginStart="15dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginEnd="15dp"
-            android:layout_marginBottom="15dp"
-            android:src="@drawable/ic_bank">
-
-        </ImageView>
-
-        <TextView
-            android:id="@+id/tv_bank"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:layout_toEndOf="@+id/img_bank"
-            android:text="Chọn ngân hàng"
-            android:textSize="19sp">
+            android:orientation="vertical">
+            <RelativeLayout
+                android:id="@+id/rl_bank"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:id="@+id/img_bank"
+                    android:layout_width="51dp"
+                    android:layout_height="35dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginBottom="15dp"
+                    android:src="@drawable/ic_bank">
 
-        </TextView>
+                </ImageView>
 
-        <ImageView
-            android:id="@+id/img_arrowDownBank"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="5dp"
-            android:src="@drawable/ic_arrow_down">
+                <TextView
+                    android:id="@+id/tv_bank"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:layout_toEndOf="@+id/img_bank"
+                    android:text="Chọn ngân hàng"
+                    android:textSize="19sp">
 
-        </ImageView>
+                </TextView>
 
-    </RelativeLayout>
+                <ImageView
+                    android:id="@+id/img_arrowDownBank"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="10dp"
+                    android:src="@drawable/ic_arrow_down">
+
+                </ImageView>
+            </RelativeLayout>
+        </LinearLayout>
+
+        <RelativeLayout
+            android:visibility="gone"
+            android:id="@+id/rl_hideshow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:id="@+id/ll_MB_bank"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="35dp"
+                android:layout_marginTop="10dp"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/img_MBbank"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/mb">
+
+                </ImageView>
+
+                <TextView
+                    android:id="@+id/tv_MBbank"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="0dp"
+                    android:text="MB Bank"
+                    android:textAlignment="center"
+                    android:textSize="18sp">
+
+                </TextView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_VPbank"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="10dp"
+                android:layout_toRightOf="@+id/ll_MB_bank"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/img_VPbank"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/vpbank">
+
+                </ImageView>
+
+                <TextView
+                    android:id="@+id/tv_VPbank"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="0dp"
+                    android:text="VP bank"
+                    android:textAlignment="center"
+                    android:textSize="18sp">
+
+                </TextView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_ViettinBank"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="10dp"
+                android:layout_toRightOf="@+id/ll_VPbank"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/img_viettinBank"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/viettinbank">
+
+                </ImageView>
+
+                <TextView
+                    android:id="@+id/tv_ViettinBank"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="0dp"
+                    android:text="Viettin bank"
+                    android:textAlignment="center"
+                    android:textSize="18sp">
+
+                </TextView>
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </LinearLayout>
 
     <RelativeLayout
         android:id="@+id/rl_Card"
         android:layout_width="match_parent"
         android:layout_height="70dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rl_Bank">
+        app:layout_constraintTop_toBottomOf="@+id/ll_Bank">
 
         <ImageView
             android:id="@+id/img_cardBank"
@@ -113,7 +216,7 @@
         android:id="@+id/rl_cash"
         android:layout_width="match_parent"
         android:layout_height="70dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -132,7 +235,7 @@
         </ImageView>
 
         <TextView
-            android:id="@+id/tv_cash"
+            android:id="@+id/tv_titleMehtodPay"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"

@@ -279,7 +279,7 @@
         android:layout_below="@+id/tv_methodPay">
 
         <ImageView
-            android:id="@+id/ic_cash"
+            android:id="@+id/img_titleImageViewMethodPay"
             android:layout_width="45dp"
             android:layout_height="35dp"
             android:layout_marginStart="15dp"
@@ -293,9 +293,9 @@
         </ImageView>
 
         <TextView
-            android:id="@+id/tv_cash"
+            android:id="@+id/tv_titleMehtodPay"
             android:layout_marginTop="12dp"
-            android:layout_toEndOf="@+id/ic_cash"
+            android:layout_toEndOf="@+id/img_titleImageViewMethodPay"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Tiền mặt"
@@ -338,9 +338,9 @@
         </ImageView>
         <TextView
             android:layout_toEndOf="@id/img_dieuKhoan"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="10dp"
             android:id="@+id/tv_dieuKhoan"
-            android:text="Nhấn ĐẶT HÀNG đồng nghĩa với việc bạn đồng ý tuân theo"
+            android:text="Nhấn ĐẶT HÀNG đồng nghĩa với việc bạn đồng ý tuân theo điều khoản của chúng tôi"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
 

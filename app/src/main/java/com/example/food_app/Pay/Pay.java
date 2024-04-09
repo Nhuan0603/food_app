@@ -1,11 +1,13 @@
 package com.example.food_app.Pay;
 
 
+import android.app.Activity;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
@@ -16,8 +18,6 @@ import androidx.fragment.app.FragmentTransaction;
 import com.example.food_app.R;
 import com.example.food_app.fragment.AccountFragment;
 import com.example.food_app.fragment.cart.CartTab;
-
-import java.util.Random;
 
 public class Pay extends AppCompatActivity {
     private static final int REQUEST_METHOD = 1;
@@ -35,6 +35,8 @@ public class Pay extends AppCompatActivity {
     private TextView productPrice;
     private TextView deliveryPrice;
     private TextView priceTotal;
+    private TextView titleMethodPay;
+    private RelativeLayout relativeLayoutDieuKhoan;
     String totalPriceProduct;
 
     public Pay() {
@@ -47,8 +49,6 @@ public class Pay extends AppCompatActivity {
 
         data();
         dataFromCartTab();
-
-        imgFixMethodPay = findViewById(R.id.ic_fixMethodPay);
         imgFixMethodPay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -56,7 +56,6 @@ public class Pay extends AppCompatActivity {
                 startActivityForResult(intent, REQUEST_METHOD);
             }
         });
-        imgToAccount = findViewById(R.id.img_fixLocation);
         imgToAccount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -67,7 +66,18 @@ public class Pay extends AppCompatActivity {
                 fragmentTransaction.commit();
             }
         });
+        relativeLayoutDieuKhoan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String url = "https://docln.net/";
+
+                // Mở đường link trong trình duyệt
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                startActivity(intent);
+            }
+        });
     }
+
 
     private void dataFromCartTab() {
         totalPriceProduct = getIntent().getStringExtra("totalPrice");
@@ -79,11 +89,15 @@ public class Pay extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == REQUEST_METHOD && resultCode == RESULT_OK) {
-            // Cập nhật lại dữ liệu ở đây (nếu cần)
+            MethodData methodData = (MethodData) data.getExtras().get("object_MethodPay");
+            titleMethodPay.setText(methodData.getTitle());
         }
     }
 
+
     public void data(){
+        imgToAccount = findViewById(R.id.img_fixLocation);
+        imgFixMethodPay = findViewById(R.id.ic_fixMethodPay);
         userName = findViewById(R.id.tv_userName);
         phoneNumber = findViewById(R.id.tv_userPhone);
         location = findViewById(R.id.tv_userLocation);
@@ -92,6 +106,8 @@ public class Pay extends AppCompatActivity {
         priceTotal = findViewById(R.id.tv_priceTotal);
         distant = findViewById(R.id.tv_distant);
         totalBottomPrice = findViewById(R.id.tv_totalPriceBottom);
+        titleMethodPay = findViewById(R.id.tv_titleMehtodPay);
+        relativeLayoutDieuKhoan = findViewById(R.id.rl_dieuKhoan);
     }
 
     public TextView getUserName() {
