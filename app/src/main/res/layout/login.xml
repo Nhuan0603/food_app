@@ -81,6 +81,7 @@
 
 
     <Button
+        style="@style/BUTTON"
         android:id="@+id/btn_login_login"
         android:layout_width="300dp"
         android:layout_height="wrap_content"

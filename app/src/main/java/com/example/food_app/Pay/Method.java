@@ -3,6 +3,7 @@ package com.example.food_app.Pay;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -13,8 +14,10 @@ import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
 import com.example.food_app.R;
+import com.example.food_app.fragment.ContactFragment;
 
 public class Method extends AppCompatActivity {
     private ImageView imgBackToPay;

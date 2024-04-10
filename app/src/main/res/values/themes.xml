@@ -22,12 +22,10 @@
     </style>
     <!-- Button when lightmode on-->
     <style name="BUTTON">
-        <item name="android:background">
+        <item name="android:backgroundTint">
             @color/orange_2
         </item>
-        <item name="android:textColor">
-            @color/white
-        </item>
+        <item name="android:textColor">@color/white</item>
     </style>
 
 </resources>

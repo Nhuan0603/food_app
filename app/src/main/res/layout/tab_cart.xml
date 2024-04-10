@@ -92,6 +92,7 @@
     </TextView>
 
     <Button
+        style="@style/BUTTON"
         android:id="@+id/btn_thanhToan"
         android:layout_width="match_parent"
         android:layout_height="52dp"

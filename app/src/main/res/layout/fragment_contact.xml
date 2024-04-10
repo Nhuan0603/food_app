@@ -4,10 +4,137 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/fragment_contact"
-        android:textSize="40sp"/>
+        android:orientation="vertical">
+
+        <TextView
+            android:textSize="30sp"
+            android:layout_margin="10dp"
+            android:textStyle="bold"
+            android:textColor="@color/orange_2"
+            android:text="Liên hệ với chúng tôi"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        </TextView>
+        <EditText
+            android:id="@+id/ed_thuGui"
+            android:layout_margin="20dp"
+            android:padding="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="300dp">
+        </EditText>
+
+        <Button
+            style="@style/BUTTON"
+            android:id="@+id/btn_guiThu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginRight="20dp"
+            android:text="Gửi">
+
+        </Button>
+
+        <RelativeLayout
+            android:layout_width="401dp"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv_title_email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="20dp"
+                android:text="Hòm thư:"
+                android:textSize="20sp"
+                android:textStyle="bold">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/tv_sent_email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="0dp"
+                android:layout_marginTop="20dp"
+                android:layout_toRightOf="@+id/tv_title_email"
+                android:gravity="center_vertical"
+                android:text="foodapp@gmail.com"
+                android:textColor="@color/green"
+                android:textSize="18sp"
+                android:textStyle="bold">
+
+            </TextView>
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="401dp"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv_title_phone_contact"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="20dp"
+                android:text="Số điện thoại"
+                android:textSize="20sp"
+                android:textStyle="bold">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/tv_phone_call"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="0dp"
+                android:layout_marginTop="20dp"
+                android:layout_toRightOf="@+id/tv_title_phone_contact"
+                android:gravity="center_vertical"
+                android:text="@string/tv_phone_contact"
+                android:textColor="@color/green"
+                android:textSize="18sp"
+                android:textStyle="bold">
+
+            </TextView>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="398dp"
+            android:layout_height="64dp">
+
+            <TextView
+                android:id="@+id/tv_title_thanks"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:text="@string/loiKet"
+                android:textSize="20sp"
+                android:textStyle="bold">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/tv_location_main"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="0dp"
+                android:layout_marginTop="20dp"
+                android:layout_toRightOf="@+id/tv_title_thanks"
+                android:gravity="center_vertical"
+                android:text="@string/diachi"
+                android:textColor="@color/green"
+                android:textSize="18sp"
+                android:textStyle="bold">
+
+            </TextView>
+        </RelativeLayout>
+    </LinearLayout>
 
 </RelativeLayout>

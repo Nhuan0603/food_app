@@ -16,8 +16,8 @@
     </style>
     <!-- Button when dark mode on-->
     <style name="BUTTON">
-        <item name="android:background">#1B6AE1</item>
-        <item name="android:textColor">@color/orange_2</item>
+        <item name="android:background">#979BA1</item>
+        <item name="android:textColor">@color/black</item>
     </style>
 
 </resources>

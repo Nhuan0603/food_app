@@ -1,49 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
     style="@style/Screen"
-    android:orientation="vertical">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:text="Thay đổi chế độ sáng/tối"
+            android:textSize="20sp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="20dp"
+            style="@style/TEXT"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
 
-    <TextView
-        style="@style/TEXT"
-        android:id="@+id/tv_night_mode"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Chế độ tối" />
+        </TextView>
+        <Switch
+            android:id="@+id/switch23"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            tools:ignore="UseSwitchCompatOrMaterialXml">
+        </Switch>
+    </RelativeLayout>
 
-    <Switch
-        android:id="@+id/switch_night_mode"
+    <SeekBar
+        android:id="@+id/seekBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
-    <TextView
-        style="@style/TEXT"
-        android:id="@+id/tv_text_size"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Kích cỡ chữ" />
-
-    <SeekBar
-        android:id="@+id/seek_bar_text_size"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:max="30"
-        android:progress="14" />
-
-    <TextView
-        style="@style/TEXT"
-        android:id="@+id/tv_sample_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Mẫu văn bản"
-        android:textSize="14sp" />
-
-    <Button
-        style="@style/BUTTON"
-        android:id="@+id/btn_save_settings"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Lưu cài đặt" />
-
-</LinearLayout>
+</androidx.appcompat.widget.LinearLayoutCompat>

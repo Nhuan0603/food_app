@@ -259,6 +259,7 @@
     </RelativeLayout>
 
     <Button
+        style="@style/BUTTON"
         android:id="@+id/btn_oke"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

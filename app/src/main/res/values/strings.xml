@@ -36,5 +36,8 @@
     <string name="channel_name">chanel1</string>
     <string name="channel_description">this is channel 1</string>
     <string name="clear_all">Đọc tất cả</string>
+    <string name="tv_phone_contact">19008198</string>
+    <string name="loiKet">"Trụ sở: "</string>
+    <string name="diachi">175 Tây Sơn, Đống Đa, Hà Nội</string>
 
 </resources>
