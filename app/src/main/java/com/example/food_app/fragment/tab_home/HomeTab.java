@@ -113,7 +113,7 @@ public class HomeTab extends Fragment {
             }
         }
         if (filteredList.isEmpty()) {
-            Toast.makeText(getContext(),"no data found", Toast.LENGTH_LONG).show();
+            Toast.makeText(getContext(),"no food found", Toast.LENGTH_LONG).show();
             foodAdapter.setFilteredList(filteredList);
         }else{
            foodAdapter.setFilteredList(filteredList);
