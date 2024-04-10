@@ -35,16 +35,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/view"
-        android:layout_marginTop="8dp">
+        android:layout_marginTop="8dp"
+        android:layout_above="@id/view2">
 
     </androidx.recyclerview.widget.RecyclerView>
 
     <View
         android:id="@+id/view2"
-        android:layout_below="@+id/rvCart"
         android:layout_width="300dp"
         android:layout_height="7dp"
-        android:layout_marginTop="5dp"
+        android:layout_above="@id/tv_total"
         android:layout_centerHorizontal="true"
         android:background="@color/orange_2">
 
@@ -54,12 +54,10 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_above="@id/btn_thanhToan"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="15dp"
         android:text="Total"
-        android:textSize="25sp"
-        android:layout_below="@+id/view2"
-        >
+        android:textSize="25sp">
 
     </TextView>
 
@@ -67,13 +65,12 @@
         android:id="@+id/tv_total"
         android:layout_width="179dp"
         android:layout_height="51dp"
+        android:layout_above="@id/btn_thanhToan"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="15dp"
+        android:layout_toRightOf="@+id/textView"
         android:text="Price"
         android:textAlignment="center"
-        android:textSize="25sp"
-        android:layout_below="@+id/view2"
-        android:layout_toRightOf="@+id/textView">
+        android:textSize="25sp">
 
     </TextView>
 
@@ -81,9 +78,8 @@
         android:id="@+id/tv_vnd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/view2"
+        android:layout_above="@+id/btn_thanhToan"
         android:layout_marginLeft="35dp"
-        android:layout_marginTop="15dp"
         android:layout_marginEnd="56dp"
         android:layout_toRightOf="@+id/tv_total"
         android:text="VND"
@@ -92,13 +88,12 @@
     </TextView>
 
     <Button
-        style="@style/BUTTON"
         android:id="@+id/btn_thanhToan"
+        style="@style/BUTTON"
         android:layout_width="match_parent"
         android:layout_height="52dp"
-        android:layout_marginTop="8dp"
+        android:layout_alignParentBottom="true"
         android:backgroundTint="#FF5722"
-        android:layout_below="@+id/tv_total"
         android:text="Thanh toán"
         android:textSize="25sp">
 

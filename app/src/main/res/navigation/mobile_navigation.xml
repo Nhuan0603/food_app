@@ -15,7 +15,7 @@
 
     <fragment
         android:id="@+id/navigation_history"
-        android:name="com.example.food_app.fragment.HistoryFragment"
+        android:name="com.example.food_app.fragment.history.HistoryFragment"
         android:label="@string/fragment_history"
         tools:layout="@layout/fragment_history" />
 

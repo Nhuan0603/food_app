@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="30dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="10dp">
+
+       <de.hdodenhof.circleimageview.CircleImageView
+           android:id="@+id/img_history"
+           android:layout_width="80dp"
+           android:layout_height="80dp"
+           android:src="@drawable/ff_4"
+           android:layout_marginEnd="20dp"/>
+        <TextView
+            android:id="@+id/name_history"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/app_name"
+            android:layout_toEndOf="@id/img_history"
+            android:textSize="24sp"
+            android:layout_marginBottom="15dp"/>
+        <TextView
+            android:id="@+id/date_history"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="12-4-2024"
+            android:textSize="24sp"
+            android:textColor="@color/orange_2"
+            android:layout_toEndOf="@id/img_history"
+            android:layout_below="@id/name_history"/>
+
+        <Button
+            android:id="@+id/re_buy_history"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="50dp"
+            android:text="Mua lại" />
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

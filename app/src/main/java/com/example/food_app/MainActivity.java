@@ -12,7 +12,6 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.net.ConnectivityManager;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -22,7 +21,7 @@ import com.example.food_app.broadcast.BatteryLowBroadcastReceiver;
 import com.example.food_app.broadcast.NetworkBroadcastReceiver;
 import com.example.food_app.fragment.AccountFragment;
 import com.example.food_app.fragment.ContactFragment;
-import com.example.food_app.fragment.HistoryFragment;
+import com.example.food_app.fragment.history.HistoryFragment;
 import com.example.food_app.fragment.Register_login.LoginActivity;
 import com.example.food_app.fragment.SettingFragment;
 import com.example.food_app.fragment.cart.CartTab;
@@ -34,9 +33,6 @@ import com.google.android.material.badge.BadgeDrawable;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 import com.google.android.material.navigation.NavigationView;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
     private NetworkBroadcastReceiver networkBroadcastReceiver = new NetworkBroadcastReceiver();
