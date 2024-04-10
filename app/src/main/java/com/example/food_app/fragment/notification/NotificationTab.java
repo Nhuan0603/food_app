@@ -7,6 +7,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,49 +24,45 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.food_app.R;
+import com.example.food_app.fragment.cart.CartModel;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 public class NotificationTab extends Fragment {
-
-    public int i=0;
+    private Button btnHome;
+    private RecyclerView rcv;
+    private NotificationAdapter  notificationAdapter;
+    private NotificationModel notificationModel = new NotificationModel();
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View myView = inflater.inflate(R.layout.tab_notification, container, false);
 
+        btnHome = myView.findViewById(R.id.btn_home);
+
         Button btnNotification = myView.findViewById(R.id.btn_notification);
+
         btnNotification.setOnClickListener(v -> {
-            sendNotification(getListNnotification().get(i).getTitle(),getListNnotification().get(i).getContent());
-            i=i+1;
-            if (i == getListNnotification().size()) i=0;
+//            Log.d("fghjgggggggggggggggggggggg", String.valueOf();
+            sendNotification("Bạn có "+ CartModel.cartList.size() + " đơn hàng!","Tài xế đang trên đường giao đến bạn trng vòng 10p tới");
+//
         });
 
-        RecyclerView rcv = myView.findViewById(R.id.rcv_notification);
-        NotificationAdapter notificationAdapter = new NotificationAdapter(getContext());
+        rcv = myView.findViewById(R.id.rcv_notification);
+        notificationAdapter = new NotificationAdapter(getContext(),this.notificationModel);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext() ,LinearLayoutManager.VERTICAL,false);
         rcv.setLayoutManager(linearLayoutManager);
 
         RecyclerView.ItemDecoration itemDecoration = new DividerItemDecoration(getContext(),DividerItemDecoration.VERTICAL);
         rcv.addItemDecoration(itemDecoration);
 
-        notificationAdapter.setData(getListNnotification());
         rcv.setAdapter(notificationAdapter);
 
         return myView;
     }
 
-    private List<Notification_item> getListNnotification() {
-        List<Notification_item> list = new ArrayList<>();
-
-        list.add(new Notification_item(R.drawable.ff_2,"no_1","Notification Food"));
-        list.add(new Notification_item(R.drawable.ff_3,"no_2","Notification Food"));
-        list.add(new Notification_item(R.drawable.ff_4,"no_3","Notification Food"));
-        list.add(new Notification_item(R.drawable.ff_5,"no_4","Notification Food"));
-        return list;
-    }
 
     private void sendNotification(String title, String content) {
 //        String GROUP_KEY_WORK_EMAIL = "com.android.example.WORK_EMAIL";
@@ -103,4 +100,5 @@ public class NotificationTab extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
     }
+
 }

@@ -12,6 +12,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.net.ConnectivityManager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -25,6 +26,7 @@ import com.example.food_app.fragment.HistoryFragment;
 import com.example.food_app.fragment.Register_login.LoginActivity;
 import com.example.food_app.fragment.SettingFragment;
 import com.example.food_app.fragment.cart.CartTab;
+import com.example.food_app.fragment.notification.NotificationModel;
 import com.example.food_app.fragment.notification.NotificationTab;
 import com.example.food_app.fragment.tab_home.HomeTab;
 import com.example.food_app.scroll.TranslateAnimation;
@@ -33,7 +35,10 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 import com.google.android.material.navigation.NavigationView;
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+import java.util.ArrayList;
+import java.util.List;
+
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
     private NetworkBroadcastReceiver networkBroadcastReceiver = new NetworkBroadcastReceiver();
     private BatteryLowBroadcastReceiver batteryLowBroadcastReceiver = new BatteryLowBroadcastReceiver();
     private DrawerLayout myDrawerLayout;
@@ -49,6 +54,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private BottomNavigationView myBottomnavigationView;
 
     private Button btnDangXuat;
+    public static int countNo = NotificationModel.getCount();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,7 +76,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         BadgeDrawable myBadgeDrawable = myBottomnavigationView.getOrCreateBadge(R.id.bottom_notice);
         myBadgeDrawable.setVisible(true);
-        myBadgeDrawable.setNumber(10);
+        myBadgeDrawable.setNumber(countNo);
 
         myBottomnavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override

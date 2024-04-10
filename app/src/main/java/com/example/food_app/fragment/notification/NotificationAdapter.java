@@ -11,19 +11,19 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.food_app.R;
+import com.example.food_app.fragment.cart.CartModel;
+import com.example.food_app.fragment.food.Food;
 
 import java.util.List;
 
 public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapter.NotificationViewHolder>{
+    private CartModel cartModel = new CartModel();
+    private NotificationModel notificationModel ;
     private Context myContext;
-    private List<Notification_item> myListNotification;
 
-    public NotificationAdapter(Context myContext) {
+    public NotificationAdapter(Context myContext,NotificationModel notificationModel) {
         this.myContext = myContext;
-    }
-    public void setData(List<Notification_item> list){
-        this.myListNotification = list;
-        notifyDataSetChanged();
+        this.notificationModel = notificationModel;
     }
     @NonNull
     @Override
@@ -34,17 +34,18 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
 
     @Override
     public void onBindViewHolder(@NonNull NotificationViewHolder holder, int position) {
-       Notification_item notification = myListNotification.get(position);
-        if (notification == null)
-            return;
-        holder.imgNotification.setImageResource(notification.getImgResourceID());
-        holder.tvTitle.setText(notification.getTitle());
-        holder.tvContent.setText(notification.getContent());
+
+        final Integer pid = cartModel.getFoodByOrder(position).getId();
+        final Food p = cartModel.foodRepository.getFood(pid);
+
+        holder.imgNotification.setImageURI(p.getImage());
+        holder.tvTitle.setText(p.getName());
+        holder.tvContent.setText("Đơn hàng đã dặt thành công và trên đường vẫn chuyển đến bạn! Chúc bạn ngon miệng!");
     }
 
     @Override
     public int getItemCount() {
-        return myListNotification.size();
+        return CartModel.cartList.size();
     }
 
     public class NotificationViewHolder extends RecyclerView.ViewHolder {

@@ -1,6 +1,5 @@
 package com.example.food_app.fragment.cart;
 
-import com.example.food_app.Pay.Pay;
 import com.example.food_app.fragment.food.Food;
 import com.example.food_app.fragment.food.FoodRepository;
 
