@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.food_app.R;
 import com.example.food_app.fragment.cart.CartModel;
+import com.example.food_app.fragment.cart.CartTab;
 import com.example.food_app.fragment.food.Food;
 import com.example.food_app.fragment.notification.NotificationAdapter;
 import com.example.food_app.fragment.notification.NotificationModel;
@@ -46,14 +47,14 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.HistoryV
         holder.btn_reBuy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ReBuy();
+               ReBuy();
             }
         });
     }
+    public void ReBuy() {
 
-    private void ReBuy() {
-        //quay lai cart
     }
+
 
     @Override
     public int getItemCount() {

@@ -44,11 +44,6 @@ public class NotificationTab extends Fragment {
 
         Button btnNotification = myView.findViewById(R.id.btn_notification);
 
-        btnNotification.setOnClickListener(v -> {
-//            Log.d("fghjgggggggggggggggggggggg", String.valueOf();
-            sendNotification("Bạn có "+ CartModel.cartList.size() + " đơn hàng!","Tài xế đang trên đường giao đến bạn trng vòng 10p tới");
-//
-        });
 
         rcv = myView.findViewById(R.id.rcv_notification);
         notificationAdapter = new NotificationAdapter(getContext(),this.notificationModel);
@@ -64,37 +59,6 @@ public class NotificationTab extends Fragment {
     }
 
 
-    private void sendNotification(String title, String content) {
-//        String GROUP_KEY_WORK_EMAIL = "com.android.example.WORK_EMAIL";
-        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher);
-        Uri sound = Uri.parse("android.resource://" + getContext().getPackageName().toString() + "/" + R.raw.iphone_sound);
-
-        Notification newMessageNotification = new NotificationCompat.Builder(getContext(), NotificationApplication.CHANNEL_ID)
-                .setSmallIcon(R.drawable.ic_email)
-                .setContentTitle(title) //emailObject.getSenderName()
-                .setContentText(content) //emailObject.getSubject()
-                .setLargeIcon(bitmap) //emailObject.getSenderAvatar()
-//                .setGroup(GROUP_KEY_WORK_EMAIL)
-                .setSound(sound)
-                .build();
-
-        NotificationManagerCompat notificationManagerCompat = NotificationManagerCompat.from(getContext());
-        if (ActivityCompat.checkSelfPermission(getContext(), Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
-            // TODO: Consider calling
-            //    ActivityCompat#requestPermissions
-            // here to request the missing permissions, and then overriding
-            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            // to handle the case where the user grants the permission. See the documentation
-            // for ActivityCompat#requestPermissions for more details.
-            return;
-        }
-        notificationManagerCompat.notify(getNotificationId(), newMessageNotification);
-    }
-
-    private int getNotificationId(){
-        return (int) new Date().getTime();
-    }
 
     @Override
     public void onDestroyView() {

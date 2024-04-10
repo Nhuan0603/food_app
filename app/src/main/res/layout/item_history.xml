@@ -3,12 +3,13 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardCornerRadius="30dp">
+    app:cardCornerRadius="30dp"
+    android:layout_marginBottom="8dp">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="10dp">
+        android:padding="5dp">
 
        <de.hdodenhof.circleimageview.CircleImageView
            android:id="@+id/img_history"
@@ -29,7 +30,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="12-4-2024"
-            android:textSize="24sp"
+            android:textSize="18sp"
             android:textColor="@color/orange_2"
             android:layout_toEndOf="@id/img_history"
             android:layout_below="@id/name_history"/>

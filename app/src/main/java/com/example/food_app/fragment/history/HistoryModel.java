@@ -1,8 +1,13 @@
 package com.example.food_app.fragment.history;
 
-import androidx.annotation.NonNull;
+import android.content.Context;
 
+import androidx.annotation.NonNull;
+import androidx.fragment.app.FragmentTransaction;
+
+import com.example.food_app.R;
 import com.example.food_app.fragment.cart.CartModel;
+import com.example.food_app.fragment.cart.CartTab;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,4 +25,5 @@ public class HistoryModel {
         }
         this.DateHistory = date;
    }
+
 }

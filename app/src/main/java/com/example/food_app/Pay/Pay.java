@@ -1,23 +1,39 @@
 package com.example.food_app.Pay;
 
 
+import android.Manifest;
 import android.app.Activity;
+import android.app.Notification;
+import android.app.PendingIntent;
+import android.app.TaskStackBuilder;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.food_app.R;
 import com.example.food_app.fragment.AccountFragment;
+import com.example.food_app.fragment.cart.CartModel;
 import com.example.food_app.fragment.cart.CartTab;
+import com.example.food_app.fragment.notification.NotificationApplication;
+import com.example.food_app.fragment.notification.NotificationTab;
+
+import java.util.Date;
 
 public class Pay extends AppCompatActivity {
     private static final int REQUEST_METHOD = 1;
@@ -39,6 +55,7 @@ public class Pay extends AppCompatActivity {
     private RelativeLayout relativeLayoutDieuKhoan;
     String totalPriceProduct;
 
+    private Button btnDatHang;
     public Pay() {
     }
 
@@ -76,6 +93,12 @@ public class Pay extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        btnDatHang.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sendNotification("Bạn có "+ CartModel.cartList.size() + " đơn hàng!","Tài xế đang trên đường giao đến bạn trng vòng 10p tới");
+            }
+        });
     }
 
 
@@ -108,6 +131,7 @@ public class Pay extends AppCompatActivity {
         totalBottomPrice = findViewById(R.id.tv_totalPriceBottom);
         titleMethodPay = findViewById(R.id.tv_titleMehtodPay);
         relativeLayoutDieuKhoan = findViewById(R.id.rl_dieuKhoan);
+        btnDatHang = findViewById(R.id.btn_datHang);
     }
 
     public TextView getUserName() {
@@ -144,5 +168,45 @@ public class Pay extends AppCompatActivity {
 
     public String getTotalPriceProduct() {
         return totalPriceProduct;
+    }
+
+
+    private void sendNotification(String title, String content) {
+//        String GROUP_KEY_WORK_EMAIL = "com.android.example.WORK_EMAIL";
+        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher);
+        Uri sound = Uri.parse("android.resource://" + this.getPackageName().toString() + "/" + R.raw.iphone_sound);
+
+//        Intent resultIntent = new Intent(this, NotificationTab.class);
+//        TaskStackBuilder stackBuilder = TaskStackBuilder.create(this);
+//        stackBuilder.addNextIntentWithParentStack(resultIntent);
+//
+//        PendingIntent resultPendingIntent = stackBuilder.getPendingIntent(getNotificationId(),PendingIntent.FLAG_UPDATE_CURRENT);
+
+        Notification newMessageNotification = new NotificationCompat.Builder(this, NotificationApplication.CHANNEL_ID)
+                .setSmallIcon(R.drawable.ic_email)
+                .setContentTitle(title) //emailObject.getSenderName()
+                .setContentText(content) //emailObject.getSubject()
+                .setLargeIcon(bitmap) //emailObject.getSenderAvatar()
+//                .setGroup(GROUP_KEY_WORK_EMAIL)
+//                .setContentIntent(resultPendingIntent)
+                .setSound(sound)
+                .build();
+
+        NotificationManagerCompat notificationManagerCompat = NotificationManagerCompat.from(this);
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+            return;
+        }
+        notificationManagerCompat.notify(getNotificationId(), newMessageNotification);
+    }
+
+    private int getNotificationId(){
+        return (int) new Date().getTime();
     }
 }

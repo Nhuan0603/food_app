@@ -4,7 +4,7 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardCornerRadius="10dp"
-    app:cardElevation="20dp"
+    app:cardElevation="10dp"
     app:cardUseCompatPadding="true"
     >
     <RelativeLayout
@@ -57,7 +57,7 @@
         <Button
             style="@style/BUTTON"
             android:id="@+id/btn_Add"
-            android:layout_width="55dp"
+            android:layout_width="54dp"
             android:layout_height="wrap_content"
             android:layout_below="@+id/tv_price"
             android:layout_alignParentRight="true"

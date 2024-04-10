@@ -18,6 +18,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.food_app.R;
 import com.example.food_app.fragment.cart.CartModel;
+import com.example.food_app.fragment.cart.CartTab;
 import com.example.food_app.fragment.tab_home.HomeTab;
 
 public class HistoryFragment extends Fragment {
@@ -26,6 +27,8 @@ public class HistoryFragment extends Fragment {
     private HistoryModel historyModel = new HistoryModel();
     private LinearLayout linearLayout;
     private Button btnBuyNow;
+
+
 
     @Override
     public void onStart() {
@@ -60,4 +63,5 @@ public class HistoryFragment extends Fragment {
         rcv_history.setAdapter(historyAdapter);
         return myView;
     }
+
 }
