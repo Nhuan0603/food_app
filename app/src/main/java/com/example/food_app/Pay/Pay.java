@@ -26,6 +26,7 @@ import androidx.core.app.NotificationManagerCompat;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.example.food_app.MainActivity;
 import com.example.food_app.R;
 import com.example.food_app.fragment.AccountFragment;
 import com.example.food_app.fragment.cart.CartModel;
